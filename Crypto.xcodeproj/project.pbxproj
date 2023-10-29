@@ -28,6 +28,13 @@
 		9FA859B12AEE8798006F30EE /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B02AEE8798006F30EE /* CustomTabBarView.swift */; };
 		9FA859B32AEE87B9006F30EE /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B22AEE87B9006F30EE /* TabBarItem.swift */; };
 		9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B42AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift */; };
+		9FA859B92AEE93C8006F30EE /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B82AEE93C8006F30EE /* TrackViewModel.swift */; };
+		9FA859BB2AEE9460006F30EE /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859BA2AEE9460006F30EE /* TrackView.swift */; };
+		9FA859BD2AEE9497006F30EE /* BaseNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859BC2AEE9497006F30EE /* BaseNetworkManager.swift */; };
+		9FA859BF2AEE94A5006F30EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859BE2AEE94A5006F30EE /* NetworkManager.swift */; };
+		9FA859C62AEE958E006F30EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C52AEE958E006F30EE /* Constants.swift */; };
+		9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C72AEE963E006F30EE /* Pagination.swift */; };
+		9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C92AEE96E8006F30EE /* CryptoError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +80,13 @@
 		9FA859B02AEE8798006F30EE /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		9FA859B22AEE87B9006F30EE /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		9FA859B42AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
+		9FA859B82AEE93C8006F30EE /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		9FA859BA2AEE9460006F30EE /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		9FA859BC2AEE9497006F30EE /* BaseNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkManager.swift; sourceTree = "<group>"; };
+		9FA859BE2AEE94A5006F30EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9FA859C52AEE958E006F30EE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9FA859C72AEE963E006F30EE /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		9FA859C92AEE96E8006F30EE /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +192,8 @@
 		9FA8598B2AEE7CA3006F30EE /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859BC2AEE9497006F30EE /* BaseNetworkManager.swift */,
+				9FA859BE2AEE94A5006F30EE /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -185,6 +201,8 @@
 		9FA8598C2AEE7CAB006F30EE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859C72AEE963E006F30EE /* Pagination.swift */,
+				9FA859C92AEE96E8006F30EE /* CryptoError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +210,7 @@
 		9FA8598D2AEE7CB2006F30EE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859B62AEE93B5006F30EE /* Track */,
 				9FA859902AEE7CE1006F30EE /* Home */,
 			);
 			path = Screens;
@@ -200,6 +219,7 @@
 		9FA8598E2AEE7CC1006F30EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859C52AEE958E006F30EE /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -241,6 +261,15 @@
 				9FA859B42AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift */,
 			);
 			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		9FA859B62AEE93B5006F30EE /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				9FA859B82AEE93C8006F30EE /* TrackViewModel.swift */,
+				9FA859BA2AEE9460006F30EE /* TrackView.swift */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,7 +407,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FA859AC2AEE85C0006F30EE /* Fonts.swift in Sources */,
+				9FA859C62AEE958E006F30EE /* Constants.swift in Sources */,
 				9FA859B12AEE8798006F30EE /* CustomTabBarView.swift in Sources */,
+				9FA859BB2AEE9460006F30EE /* TrackView.swift in Sources */,
+				9FA859B92AEE93C8006F30EE /* TrackViewModel.swift in Sources */,
+				9FA859BF2AEE94A5006F30EE /* NetworkManager.swift in Sources */,
 				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
 				9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */,
 				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
@@ -388,6 +421,9 @@
 				9FA859982AEE7F3C006F30EE /* Colors.swift in Sources */,
 				9FA8595E2AEE72B8006F30EE /* ContentView.swift in Sources */,
 				9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */,
+				9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */,
+				9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */,
+				9FA859BD2AEE9497006F30EE /* BaseNetworkManager.swift in Sources */,
 				9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
