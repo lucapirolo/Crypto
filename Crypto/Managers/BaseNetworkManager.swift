@@ -1,9 +1,6 @@
-//
 //  BaseNetworkManager.swift
 //  Crypto
-//
 //  Created by Luca Pirolo on 29/10/2023.
-//
 
 import Foundation
 
@@ -22,11 +19,16 @@ class BaseNetworkManager {
 
     /// The URLSession used for making network requests.
     private let session: URLSession
+    
+    /// The JSON Decoder
+    private let decoder = JSONDecoder()
 
     /// Initializes a new instance of the network manager.
     /// - Parameter session: The URLSession to be used for network requests. Defaults to `URLSession.shared`.
     init(session: URLSession = URLSession.shared) {
         self.session = session
+        // Sets the decoding strategy for decoding date strings
+        decoder.dateDecodingStrategy = .iso8601WithFractionalSeconds
     }
 
     /// Sends a network request and decodes the response.
@@ -36,6 +38,7 @@ class BaseNetworkManager {
     ///   - body: The body data to send with the request. Defaults to nil.
     ///   - responseType: The expected type of the response.
     ///   - pagination: Optional pagination information for the request.
+    ///   - queryParams: Optional query parameters for the request.
     /// - Returns: A decoded object of type `T`.
     /// - Throws: `NetworkError` in case of any failure.
     func sendRequest<T: Decodable>(
@@ -43,7 +46,8 @@ class BaseNetworkManager {
         method: HTTPMethod,
         body: Data? = nil,
         responseType: T.Type,
-        pagination: Pagination? = nil
+        pagination: Pagination? = nil,
+        queryParams: [String: String]? = nil // <-- Add this line
     ) async throws -> T {
         var urlComponents = URLComponents(string: baseUrl + endpoint)
         
@@ -52,11 +56,20 @@ class BaseNetworkManager {
             addPaginationParameters(to: &components, pagination: pagination)
             urlComponents = components
         }
+
+        // Append query parameters if provided.
+        if let queryParams = queryParams, var components = urlComponents {
+            addQueryParameters(to: &components, queryParams: queryParams)
+            urlComponents = components
+        }
+
         
         // Ensure a valid URL is formed.
         guard let apiUrl = urlComponents?.url else {
             throw NetworkError.invalidUrl
         }
+        
+        print(apiUrl)
         
         var urlRequest = URLRequest(url: apiUrl)
         urlRequest.httpMethod = method.rawValue
@@ -65,6 +78,7 @@ class BaseNetworkManager {
         
         // Perform the network request.
         let (data, response) = try await session.data(for: urlRequest)
+        print(data)
         
         // Validate the HTTP response.
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -74,7 +88,7 @@ class BaseNetworkManager {
         // Handle different status codes.
         switch httpResponse.statusCode {
             case 200...299:
-                return try JSONDecoder().decode(responseType, from: data)
+                return try decoder.decode(responseType, from: data)
             case 400...499:
                 throw NetworkError.clientError(httpResponse.statusCode)
             case 500...599:
@@ -96,6 +110,21 @@ class BaseNetworkManager {
             urlComponents.queryItems = [perPageItem, pageItem]
         } else {
             urlComponents.queryItems?.append(contentsOf: [perPageItem, pageItem])
+        }
+    }
+
+    /// Adds query parameters to the URL components.
+    /// - Parameters:
+    ///   - urlComponents: The URL components to modify.
+    ///   - queryParams: The query parameters.
+    private func addQueryParameters(to urlComponents: inout URLComponents, queryParams: [String: String]) {
+        for (key, value) in queryParams {
+            let queryItem = URLQueryItem(name: key, value: value)
+            if urlComponents.queryItems == nil {
+                urlComponents.queryItems = [queryItem]
+            } else {
+                urlComponents.queryItems?.append(queryItem)
+            }
         }
     }
 }

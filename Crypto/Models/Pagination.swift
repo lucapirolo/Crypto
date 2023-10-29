@@ -10,13 +10,13 @@ import Foundation
 /// Represents pagination information for data fetching.
 struct Pagination {
     /// The current page index.
-    let currentPage: Int
+    var currentPage: Int
     
     /// The number of items per page.
-    let itemsPerPage: Int
+    var itemsPerPage: Int
 
     /// A standard instance of Pagination with predefined defaults.
-    static let standard = Pagination(currentPage: 0, itemsPerPage: 70)
+    static let standard = Pagination(currentPage: 0, itemsPerPage: 200)
 
     /// Private initializer to control the creation of instances with default values.
     private init(currentPage: Int, itemsPerPage: Int) {
@@ -28,5 +28,10 @@ struct Pagination {
     init(page: Int, perPage: Int) {
         self.currentPage = page
         self.itemsPerPage = perPage
+    }
+    
+    /// Increments the currentPage property by 1
+    mutating func nextPage() {
+        currentPage += 1
     }
 }

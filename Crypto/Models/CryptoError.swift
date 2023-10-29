@@ -37,4 +37,32 @@ enum NetworkError: Error {
             return "Unknown network error occurred"
         }
     }
+    
+    var alertItem: AlertItem {
+           switch self {
+           case .serverError:
+               return AlertContext.invalidData
+
+           case .clientError:
+               return AlertContext.invalidResponse
+
+           case .conflictError:
+               return AlertItem.create(title: "Conflict Error", message: self.localizedDescription)
+
+           case .invalidUrl:
+               return AlertContext.invalidURL
+
+           case .invalidResponse:
+               return AlertContext.invalidResponse
+
+           case .dataDecodingError:
+               return AlertItem.create(title: "Decoding Error", message: self.localizedDescription)
+
+           case .unexpectedStatusCode:
+               return AlertItem.create(title: "Unexpected Error", message: self.localizedDescription)
+
+           case .unknown:
+               return AlertContext.unableToComplete
+           }
+       }
 }

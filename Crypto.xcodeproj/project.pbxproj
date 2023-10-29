@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A88E2AEEAF9600169871 /* Alert.swift */; };
+		9F94A8912AEEB76900169871 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8902AEEB76900169871 /* Formatters.swift */; };
 		9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */; };
-		9FA8595E2AEE72B8006F30EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8595D2AEE72B8006F30EE /* ContentView.swift */; };
 		9FA859602AEE72B9006F30EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8595F2AEE72B9006F30EE /* Assets.xcassets */; };
 		9FA859632AEE72B9006F30EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859622AEE72B9006F30EE /* Preview Assets.xcassets */; };
 		9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859642AEE72B9006F30EE /* Persistence.swift */; };
@@ -56,9 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F94A88E2AEEAF9600169871 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		9F94A8902AEEB76900169871 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		9FA859582AEE72B8006F30EE /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
-		9FA8595D2AEE72B8006F30EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9FA8595F2AEE72B9006F30EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FA859622AEE72B9006F30EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9FA859642AEE72B9006F30EE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -148,7 +150,6 @@
 				9FA8598B2AEE7CA3006F30EE /* Managers */,
 				9FA8598A2AEE7C94006F30EE /* Extensions */,
 				9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */,
-				9FA8595D2AEE72B8006F30EE /* ContentView.swift */,
 				9FA8595F2AEE72B9006F30EE /* Assets.xcassets */,
 				9FA859642AEE72B9006F30EE /* Persistence.swift */,
 				9FA859662AEE72B9006F30EE /* Crypto.xcdatamodeld */,
@@ -187,6 +188,7 @@
 			children = (
 				9FA859972AEE7F3C006F30EE /* Colors.swift */,
 				9FA859AB2AEE85C0006F30EE /* Fonts.swift */,
+				9F94A8902AEEB76900169871 /* Formatters.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				9FA859C52AEE958E006F30EE /* Constants.swift */,
+				9F94A88E2AEEAF9600169871 /* Alert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -423,11 +426,12 @@
 				9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */,
 				9FA859AF2AEE877A006F30EE /* CustomTabBarContainerView.swift in Sources */,
 				9FA859982AEE7F3C006F30EE /* Colors.swift in Sources */,
-				9FA8595E2AEE72B8006F30EE /* ContentView.swift in Sources */,
 				9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */,
 				9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */,
+				9F94A8912AEEB76900169871 /* Formatters.swift in Sources */,
 				9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */,
 				9FA859BD2AEE9497006F30EE /* BaseNetworkManager.swift in Sources */,
+				9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */,
 				9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 /// An array of `Cryptocurrency` objects.
 typealias Cryptos = [Cryptocurrency]
@@ -37,7 +38,7 @@ struct Cryptocurrency: Decodable {
     let fullyDilutedValuation: Int?
 
     /// Total volume of currency traded in the last 24 hours.
-    let totalVolume: Int
+    let totalVolume: Double
 
     /// Highest price of the cryptocurrency in the last 24 hours.
     let high24h: Double
@@ -52,7 +53,7 @@ struct Cryptocurrency: Decodable {
     let priceChangePercentage24h: Double
 
     /// Market capitalization change in the last 24 hours.
-    let marketCapChange24h: Int
+    let marketCapChange24h: Double
 
     /// Percentage change of market capitalization in the last 24 hours.
     let marketCapChangePercentage24h: Double
@@ -71,21 +72,15 @@ struct Cryptocurrency: Decodable {
 
     /// Percentage change from the all-time high price.
     let athChangePercentage: Double
-
-    /// Date when the all-time high price was reached.
-    let athDate: String
-
+    
     /// All-time low price.
     let atl: Double
 
     /// Percentage change from the all-time low price.
     let atlChangePercentage: Double
 
-    /// Date when the all-time low price was reached.
-    let atlDate: String
-
     /// Last time when the cryptocurrency data was updated.
-    let lastUpdated: String
+    let lastUpdated: Date
 
     /// Coding keys to map JSON keys to the struct properties.
     enum CodingKeys: String, CodingKey {
@@ -104,10 +99,77 @@ struct Cryptocurrency: Decodable {
         case circulatingSupply = "circulating_supply"
         case totalSupply = "total_supply"
         case maxSupply = "max_supply"
-        case ath, athDate = "ath_date"
+        case ath = "ath"
         case athChangePercentage = "ath_change_percentage"
-        case atl, atlDate = "atl_date"
+        case atl = "atl"
         case atlChangePercentage = "atl_change_percentage"
         case lastUpdated = "last_updated"
     }
+}
+
+
+// MARK: - Extension for CryptoCurrencyEntity
+extension CryptoCurrencyEntity {
+    /// Converts a `CryptoCurrencyEntity` to a `Cryptocurrency`.
+    func toModel() -> Cryptocurrency {
+        return Cryptocurrency(
+            id: id ?? "",
+            symbol: symbol ?? "",
+            name: name ?? "",
+            image: image ?? "",
+            currentPrice: currentPrice,
+            marketCap: Int(marketCap),
+            marketCapRank: Int(marketCapRank),
+            fullyDilutedValuation: Int(fullyDilutedValuation),
+            totalVolume: Double(totalVolume),
+            high24h: high24h,
+            low24h: low24h,
+            priceChange24h: priceChange24h,
+            priceChangePercentage24h: priceChangePercentage24h,
+            marketCapChange24h: Double(marketCapChange24h),
+            marketCapChangePercentage24h: marketCapChangePercentage24h,
+            circulatingSupply: circulatingSupply,
+            totalSupply: Double(totalSupply),
+            maxSupply: Double(maxSupply),
+            ath: ath,
+            athChangePercentage: athChangePercentage,
+            atl: atl,
+            atlChangePercentage: atlChangePercentage,
+            lastUpdated: lastUpdated ?? Date.now
+        )
+    }
+}
+
+extension Cryptocurrency {
+
+    /// Converts a `Cryptocurrency` instance to a `CryptoCurrencyEntity`.
+    func toEntity(in context: NSManagedObjectContext) -> CryptoCurrencyEntity {
+        let entity = CryptoCurrencyEntity(context: context)
+        entity.id = id
+        entity.symbol = symbol
+        entity.name = name
+        entity.image = image
+        entity.currentPrice = currentPrice
+        entity.marketCap = Int64(marketCap)
+        entity.marketCapRank = Int64(marketCapRank)
+        entity.fullyDilutedValuation = Int64(fullyDilutedValuation ?? 0)
+        entity.totalVolume = Int64(totalVolume)
+        entity.high24h = high24h
+        entity.low24h = low24h
+        entity.priceChange24h = priceChange24h
+        entity.priceChangePercentage24h = priceChangePercentage24h
+        entity.marketCapChange24h = Int64(marketCapChange24h)
+        entity.marketCapChangePercentage24h = marketCapChangePercentage24h
+        entity.circulatingSupply = circulatingSupply
+        entity.totalSupply = Double(totalSupply ?? 0)
+        entity.maxSupply = Double(maxSupply ?? 0)
+        entity.ath = ath
+        entity.athChangePercentage = athChangePercentage
+        entity.atl = atl
+        entity.atlChangePercentage = atlChangePercentage
+        entity.lastUpdated = lastUpdated
+
+        return entity
+    }
+
 }

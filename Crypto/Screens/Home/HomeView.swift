@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var tabSelection: TabBarItem = .home
+    @State private var tabSelection: TabBarItem = .track
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
-            Text("Track")
+            TrackView()
                 .tabBarItem(tab: .track, selection: $tabSelection)
             
             
