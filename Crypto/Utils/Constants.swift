@@ -15,6 +15,11 @@ enum ApiConstants {
 }
 
 enum ApiControllers {
+    //MARK: - Coin Gecko Api Controllers
     static let coins = "coins"
 }
 
+enum ApiEnpoints {
+    //MARK: - Coin Gecko Api Endpoints
+    static let markets = "markets"
+}

@@ -35,6 +35,7 @@
 		9FA859C62AEE958E006F30EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C52AEE958E006F30EE /* Constants.swift */; };
 		9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C72AEE963E006F30EE /* Pagination.swift */; };
 		9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C92AEE96E8006F30EE /* CryptoError.swift */; };
+		9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		9FA859C52AEE958E006F30EE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9FA859C72AEE963E006F30EE /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		9FA859C92AEE96E8006F30EE /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
+		9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				9FA859C72AEE963E006F30EE /* Pagination.swift */,
 				9FA859C92AEE96E8006F30EE /* CryptoError.swift */,
+				9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				9FA859B92AEE93C8006F30EE /* TrackViewModel.swift in Sources */,
 				9FA859BF2AEE94A5006F30EE /* NetworkManager.swift in Sources */,
 				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
+				9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */,
 				9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */,
 				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
 				9FA859B32AEE87B9006F30EE /* TabBarItem.swift in Sources */,
