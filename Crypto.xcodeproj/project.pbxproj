@@ -18,6 +18,7 @@
 		9FA8597E2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8597D2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift */; };
 		9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859932AEE7D02006F30EE /* HomeView.swift */; };
 		9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859952AEE7D44006F30EE /* HomeViewModel.swift */; };
+		9FA859982AEE7F3C006F30EE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859972AEE7F3C006F30EE /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9FA8597D2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9FA859932AEE7D02006F30EE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9FA859952AEE7D44006F30EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9FA859972AEE7F3C006F30EE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		9FA8598A2AEE7C94006F30EE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859972AEE7F3C006F30EE /* Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
 				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
 				9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */,
+				9FA859982AEE7F3C006F30EE /* Colors.swift in Sources */,
 				9FA8595E2AEE72B8006F30EE /* ContentView.swift in Sources */,
 				9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */,
 				9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */,
