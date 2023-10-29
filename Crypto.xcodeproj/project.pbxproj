@@ -19,6 +19,11 @@
 		9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859932AEE7D02006F30EE /* HomeView.swift */; };
 		9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859952AEE7D44006F30EE /* HomeViewModel.swift */; };
 		9FA859982AEE7F3C006F30EE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859972AEE7F3C006F30EE /* Colors.swift */; };
+		9FA859A62AEE8471006F30EE /* Acumin-ItPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859A22AEE8471006F30EE /* Acumin-ItPro.ttf */; };
+		9FA859A72AEE8471006F30EE /* Acumin-BdItPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859A32AEE8471006F30EE /* Acumin-BdItPro.ttf */; };
+		9FA859A82AEE8471006F30EE /* Acumin-RPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859A42AEE8471006F30EE /* Acumin-RPro.ttf */; };
+		9FA859A92AEE8471006F30EE /* Acumin-BdPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859A52AEE8471006F30EE /* Acumin-BdPro.ttf */; };
+		9FA859AC2AEE85C0006F30EE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859AB2AEE85C0006F30EE /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,12 @@
 		9FA859932AEE7D02006F30EE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9FA859952AEE7D44006F30EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9FA859972AEE7F3C006F30EE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9FA859A22AEE8471006F30EE /* Acumin-ItPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin-ItPro.ttf"; sourceTree = "<group>"; };
+		9FA859A32AEE8471006F30EE /* Acumin-BdItPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin-BdItPro.ttf"; sourceTree = "<group>"; };
+		9FA859A42AEE8471006F30EE /* Acumin-RPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin-RPro.ttf"; sourceTree = "<group>"; };
+		9FA859A52AEE8471006F30EE /* Acumin-BdPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin-BdPro.ttf"; sourceTree = "<group>"; };
+		9FA859AA2AEE84CB006F30EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9FA859AB2AEE85C0006F30EE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +115,8 @@
 		9FA8595A2AEE72B8006F30EE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859AA2AEE84CB006F30EE /* Info.plist */,
+				9FA859992AEE824F006F30EE /* Fonts */,
 				9FA8598F2AEE7CCA006F30EE /* Views */,
 				9FA8598E2AEE7CC1006F30EE /* Utils */,
 				9FA8598D2AEE7CB2006F30EE /* Screens */,
@@ -149,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				9FA859972AEE7F3C006F30EE /* Colors.swift */,
+				9FA859AB2AEE85C0006F30EE /* Fonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +210,17 @@
 				9FA859952AEE7D44006F30EE /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		9FA859992AEE824F006F30EE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9FA859A32AEE8471006F30EE /* Acumin-BdItPro.ttf */,
+				9FA859A52AEE8471006F30EE /* Acumin-BdPro.ttf */,
+				9FA859A22AEE8471006F30EE /* Acumin-ItPro.ttf */,
+				9FA859A42AEE8471006F30EE /* Acumin-RPro.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +327,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA859A72AEE8471006F30EE /* Acumin-BdItPro.ttf in Resources */,
+				9FA859A92AEE8471006F30EE /* Acumin-BdPro.ttf in Resources */,
+				9FA859A62AEE8471006F30EE /* Acumin-ItPro.ttf in Resources */,
 				9FA859632AEE72B9006F30EE /* Preview Assets.xcassets in Resources */,
+				9FA859A82AEE8471006F30EE /* Acumin-RPro.ttf in Resources */,
 				9FA859602AEE72B9006F30EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA859AC2AEE85C0006F30EE /* Fonts.swift in Sources */,
 				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
 				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
 				9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */,
@@ -496,6 +526,7 @@
 				DEVELOPMENT_TEAM = 828V74ATZS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Crypto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -526,6 +557,7 @@
 				DEVELOPMENT_TEAM = 828V74ATZS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Crypto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
