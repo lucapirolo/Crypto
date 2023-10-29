@@ -16,8 +16,8 @@ extension Font {
 
 //MARK: - Crypto.com SECONDARY TYPEFACE
 enum AcuminFontStyle: String {
-    case regular = "Acumin-RPro"
-    case bold = "Acumin-BdPro"
-    case italic = "Acumin-ItPro"
-    case boldItalic = "Acumin-BdItPro"
+    case regular = "AcuminPro-Regular"
+    case bold = "AcuminPro-Bold"
+    case italic = "AcuminPro-Italic"
+    case boldItalic = "AcuminPro-BoldItalic"
 }

@@ -89,6 +89,8 @@ class BaseNetworkManager {
         switch httpResponse.statusCode {
             case 200...299:
                 return try decoder.decode(responseType, from: data)
+            case 429:
+                throw NetworkError.tooManyRequests
             case 400...499:
                 throw NetworkError.clientError(httpResponse.statusCode)
             case 500...599:
@@ -96,6 +98,7 @@ class BaseNetworkManager {
             default:
                 throw NetworkError.unexpectedStatusCode(httpResponse.statusCode)
         }
+
     }
     
     /// Adds pagination parameters to the URL components.

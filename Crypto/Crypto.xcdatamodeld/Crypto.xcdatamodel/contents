@@ -3,10 +3,8 @@
     <entity name="CryptoCurrencyEntity" representedClassName="CryptoCurrencyEntity" syncable="YES" codeGenerationType="class">
         <attribute name="ath" attributeType="Double"/>
         <attribute name="athChangePercentage" attributeType="Double"/>
-        <attribute name="athDate" attributeType="Date"/>
         <attribute name="atl" attributeType="Double"/>
         <attribute name="atlChangePercentage" attributeType="Double"/>
-        <attribute name="atlDate" attributeType="Date"/>
         <attribute name="circulatingSupply" attributeType="Double"/>
         <attribute name="currentPrice" attributeType="Double"/>
         <attribute name="fullyDilutedValuation" optional="YES" attributeType="Integer 64"/>

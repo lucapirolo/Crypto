@@ -89,7 +89,7 @@ extension CustomTabBarView {
             }
         }
         .padding(Constants.tabBarPadding)
-        .background(Color(uiColor: UIColor.secondarySystemGroupedBackground))
+        .background(colorScheme == .dark ? Color.midnight : Color(uiColor: UIColor.systemGroupedBackground))
         .cornerRadius(Constants.tabBarCornerRadius)
         .shadow(color: Color.black.opacity(Constants.tabBarShadowOpacity), radius: Constants.tabBarShadowRadius, x: 0, y: Constants.tabBarShadowYOffset)
         .padding(.horizontal, Constants.horizontalPadding)

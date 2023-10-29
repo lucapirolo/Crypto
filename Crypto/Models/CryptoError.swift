@@ -13,6 +13,7 @@ enum NetworkError: Error {
     case conflictError(String?)            // Contains an optional message about the conflict
     case invalidUrl                        // URL creation failed
     case invalidResponse                   // Response is not a valid HTTP response
+    case tooManyRequests                   // Too Many Requests within a given time
     case dataDecodingError(Error)          // Error while decoding the response
     case unknown                           // A fallback for other unknown errors
     case unexpectedStatusCode(Int)         // For HTTP status codes that are not explicitly handled
@@ -35,6 +36,8 @@ enum NetworkError: Error {
             return "Unexpected status code: \(statusCode)"
         case .unknown:
             return "Unknown network error occurred"
+        case .tooManyRequests:
+            return "Please slow down and try again later."
         }
     }
     
@@ -63,6 +66,9 @@ enum NetworkError: Error {
 
            case .unknown:
                return AlertContext.unableToComplete
+           case .tooManyRequests:
+               return AlertItem.create(title: "Too Many Requests!", message: self.localizedDescription)
+
            }
        }
 }

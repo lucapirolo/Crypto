@@ -10,7 +10,7 @@ import Foundation
 final class TrackViewModel: ObservableObject {
     @Published var alert: AlertItem?
     @Published var isLoading = false
-    @Published var cryptos: Cryptos = []
+    @Published var cryptos: Cryptos?
     private var pagination = Pagination.standard
     private var loadMore = true
     
@@ -45,15 +45,23 @@ final class TrackViewModel: ObservableObject {
         }
         // Append new data instead of reassigning
         DispatchQueue.main.async {
-            self.cryptos.append(contentsOf: response)
+            if self.cryptos == nil {
+                self.cryptos = []
+            }
+            self.cryptos?.append(contentsOf: response)
+            PersistenceController.shared.saveCryptocurrencies(self.cryptos ?? [])
             self.isLoading = false
         }
-        PersistenceController.shared.saveCryptocurrencies(cryptos)
+        
+        
+        
               
     }
     
     private func handle(error: Error) {
-        print(error)
+        DispatchQueue.main.async {
+            self.isLoading = false
+        }
         if let networkError = error as? NetworkError {
             DispatchQueue.main.async {
                 self.alert = networkError.alertItem
