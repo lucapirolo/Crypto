@@ -10,7 +10,12 @@ import SwiftUI
 @main
 struct CryptoApp: App {
     let persistenceController = PersistenceController.shared
+    
+    init() {
+        ValueTransformer.setValueTransformer(SparklineTransformer(), forName: NSValueTransformerName("SparklineTransformer"))
 
+    }
+    
     var body: some Scene {
         WindowGroup {
             HomeView()

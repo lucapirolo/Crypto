@@ -38,7 +38,7 @@ struct TrackView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Track Coins")
             .onAppear {
-//                viewModel.loadMarketData()
+                viewModel.loadMarketData()
             }
             .showAlert(alert: $viewModel.alert)
         }

@@ -81,6 +81,9 @@ struct Cryptocurrency: Decodable {
 
     /// Last time when the cryptocurrency data was updated.
     let lastUpdated: Date
+    
+    /// The prices over the last 7 days
+    let sparklineIn7D: SparklineIn7D
 
     /// Coding keys to map JSON keys to the struct properties.
     enum CodingKeys: String, CodingKey {
@@ -104,14 +107,27 @@ struct Cryptocurrency: Decodable {
         case atl = "atl"
         case atlChangePercentage = "atl_change_percentage"
         case lastUpdated = "last_updated"
+        case sparklineIn7D = "sparkline_in_7d"
     }
 }
 
+
+struct SparklineIn7D: Codable {
+    let price: [Double]
+}
 
 // MARK: - Extension for CryptoCurrencyEntity
 extension CryptoCurrencyEntity {
     /// Converts a `CryptoCurrencyEntity` to a `Cryptocurrency`.
     func toModel() -> Cryptocurrency {
+        let sparklinePrices: [Double] = {
+                  if let data = sparklineIn7D,
+                     let sparkline = SparklineTransformer().transformedValue(data) as? [Double] {
+                      return sparkline
+                  }
+                  return []
+              }()
+        
         return Cryptocurrency(
             id: id ?? "",
             symbol: symbol ?? "",
@@ -135,7 +151,7 @@ extension CryptoCurrencyEntity {
             athChangePercentage: athChangePercentage,
             atl: atl,
             atlChangePercentage: atlChangePercentage,
-            lastUpdated: lastUpdated ?? Date.now
+            lastUpdated: lastUpdated ?? Date.now, sparklineIn7D: SparklineIn7D(price: sparklinePrices)
         )
     }
 }
@@ -168,8 +184,13 @@ extension Cryptocurrency {
         entity.atl = atl
         entity.atlChangePercentage = atlChangePercentage
         entity.lastUpdated = lastUpdated
+        if let sparklineData = SparklineTransformer().transformedValue(sparklineIn7D) as? Data {
+            entity.sparklineIn7D = sparklineData
+        }
 
         return entity
     }
 
 }
+
+

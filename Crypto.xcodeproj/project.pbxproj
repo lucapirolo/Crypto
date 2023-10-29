@@ -11,11 +11,11 @@
 		9F94A8912AEEB76900169871 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8902AEEB76900169871 /* Formatters.swift */; };
 		9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8922AEECBDD00169871 /* UIKit.swift */; };
 		9F94A8952AEECC0000169871 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8942AEECC0000169871 /* View.swift */; };
+		9F94A89E2AEEDFE000169871 /* Crypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A89C2AEEDFE000169871 /* Crypto.xcdatamodeld */; };
 		9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */; };
 		9FA859602AEE72B9006F30EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8595F2AEE72B9006F30EE /* Assets.xcassets */; };
 		9FA859632AEE72B9006F30EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859622AEE72B9006F30EE /* Preview Assets.xcassets */; };
 		9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859642AEE72B9006F30EE /* Persistence.swift */; };
-		9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859662AEE72B9006F30EE /* Crypto.xcdatamodeld */; };
 		9FA859722AEE72B9006F30EE /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859712AEE72B9006F30EE /* CryptoTests.swift */; };
 		9FA8597C2AEE72B9006F30EE /* CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8597B2AEE72B9006F30EE /* CryptoUITests.swift */; };
 		9FA8597E2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8597D2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift */; };
@@ -39,6 +39,7 @@
 		9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C72AEE963E006F30EE /* Pagination.swift */; };
 		9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C92AEE96E8006F30EE /* CryptoError.swift */; };
 		9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */; };
+		9FE6BB4A2AEEE241007905FB /* SparklineTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6BB492AEEE241007905FB /* SparklineTransformers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +64,12 @@
 		9F94A8902AEEB76900169871 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		9F94A8922AEECBDD00169871 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
 		9F94A8942AEECC0000169871 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		9F94A89D2AEEDFE000169871 /* Crypto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypto.xcdatamodel; sourceTree = "<group>"; };
 		9FA859582AEE72B8006F30EE /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
 		9FA8595F2AEE72B9006F30EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FA859622AEE72B9006F30EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9FA859642AEE72B9006F30EE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		9FA859672AEE72B9006F30EE /* Crypto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypto.xcdatamodel; sourceTree = "<group>"; };
 		9FA8596D2AEE72B9006F30EE /* CryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA859712AEE72B9006F30EE /* CryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTests.swift; sourceTree = "<group>"; };
 		9FA859772AEE72B9006F30EE /* CryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +96,7 @@
 		9FA859C72AEE963E006F30EE /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		9FA859C92AEE96E8006F30EE /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
 		9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
+		9FE6BB492AEEE241007905FB /* SparklineTransformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklineTransformers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		9FA8595A2AEE72B8006F30EE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				9FE6BB482AEEE20C007905FB /* Transformers */,
 				9FA859AA2AEE84CB006F30EE /* Info.plist */,
 				9FA859992AEE824F006F30EE /* Fonts */,
 				9FA8598F2AEE7CCA006F30EE /* Views */,
@@ -156,8 +159,8 @@
 				9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */,
 				9FA8595F2AEE72B9006F30EE /* Assets.xcassets */,
 				9FA859642AEE72B9006F30EE /* Persistence.swift */,
-				9FA859662AEE72B9006F30EE /* Crypto.xcdatamodeld */,
 				9FA859612AEE72B9006F30EE /* Preview Content */,
+				9F94A89C2AEEDFE000169871 /* Crypto.xcdatamodeld */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -282,6 +285,14 @@
 				9FA859BA2AEE9460006F30EE /* TrackView.swift */,
 			);
 			path = Track;
+			sourceTree = "<group>";
+		};
+		9FE6BB482AEEE20C007905FB /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				9FE6BB492AEEE241007905FB /* SparklineTransformers.swift */,
+			);
+			path = Transformers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +435,6 @@
 				9FA859BB2AEE9460006F30EE /* TrackView.swift in Sources */,
 				9FA859B92AEE93C8006F30EE /* TrackViewModel.swift in Sources */,
 				9FA859BF2AEE94A5006F30EE /* NetworkManager.swift in Sources */,
-				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
 				9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */,
 				9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */,
 				9F94A8952AEECC0000169871 /* View.swift in Sources */,
@@ -440,6 +450,8 @@
 				9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */,
 				9FA859BD2AEE9497006F30EE /* BaseNetworkManager.swift in Sources */,
 				9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */,
+				9FE6BB4A2AEEE241007905FB /* SparklineTransformers.swift in Sources */,
+				9F94A89E2AEEDFE000169871 /* Crypto.xcdatamodeld in Sources */,
 				9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -771,12 +783,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9FA859662AEE72B9006F30EE /* Crypto.xcdatamodeld */ = {
+		9F94A89C2AEEDFE000169871 /* Crypto.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9FA859672AEE72B9006F30EE /* Crypto.xcdatamodel */,
+				9F94A89D2AEEDFE000169871 /* Crypto.xcdatamodel */,
 			);
-			currentVersion = 9FA859672AEE72B9006F30EE /* Crypto.xcdatamodel */;
+			currentVersion = 9F94A89D2AEEDFE000169871 /* Crypto.xcdatamodel */;
 			path = Crypto.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

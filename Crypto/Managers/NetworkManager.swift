@@ -19,7 +19,7 @@ final class NetworkManager: BaseNetworkManager {
         let queryParams: [String: String] = [
             "vs_currency": "usd",
             "order": "market_cap_desc",
-            "sparkline": "false",
+            "sparkline": "true",
             "locale": "en"
         ]
     
