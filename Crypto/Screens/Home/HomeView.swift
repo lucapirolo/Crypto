@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var tabSelection: TabBarItem = .track
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
@@ -23,6 +24,7 @@ struct HomeView: View {
             Text("Card")
                 .tabBarItem(tab: .card, selection: $tabSelection)
         }
+        .background(colorScheme == .dark ? Color.midnight : Color(uiColor: UIColor.systemBackground)) 
         .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }

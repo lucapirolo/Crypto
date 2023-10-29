@@ -30,6 +30,7 @@ struct PersistenceController {
     /// - Parameter cryptos: An array of `Cryptocurrency` objects to be saved.
     func saveCryptocurrencies(_ cryptos: Cryptos) {
         let backgroundContext = container.newBackgroundContext()
+        backgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         backgroundContext.perform {
             // Iterate over the array of cryptocurrencies

@@ -157,6 +157,34 @@ extension CryptoCurrencyEntity {
 }
 
 extension Cryptocurrency {
+    
+    var formattedCurrentPrice: String {
+       let formatter = NumberFormatter()
+       formatter.numberStyle = .currency
+       formatter.currencyCode = "GBP"
+       formatter.locale = Locale(identifier: "en_GB") // Optional, if you want to enforce UK locale
+       
+       // Using currentPrice to format as currency
+       guard let formattedPrice = formatter.string(from: NSNumber(value: currentPrice)) else {
+           return "£0.00"
+       }
+       return formattedPrice
+   }
+    
+    var isPriceChangePositive: Bool {
+           return priceChangePercentage24h >= 0
+       }
+    
+    var formattedPriceChangePercentage: String {
+           let formatter = NumberFormatter()
+           formatter.numberStyle = .percent
+           formatter.maximumFractionDigits = 2
+           formatter.minimumFractionDigits = 2
+           formatter.positivePrefix = formatter.plusSign
+           
+           let percentageValue = priceChangePercentage24h / 100.0
+           return formatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
+       }
 
     /// Converts a `Cryptocurrency` instance to a `CryptoCurrencyEntity`.
     func toEntity(in context: NSManagedObjectContext) -> CryptoCurrencyEntity {

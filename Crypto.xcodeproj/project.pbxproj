@@ -40,6 +40,7 @@
 		9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859C92AEE96E8006F30EE /* CryptoError.swift */; };
 		9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */; };
 		9FE6BB4A2AEEE241007905FB /* SparklineTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6BB492AEEE241007905FB /* SparklineTransformers.swift */; };
+		9FE6BB4D2AEEF105007905FB /* CryptoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6BB4C2AEEF105007905FB /* CryptoRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		9FA859C92AEE96E8006F30EE /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
 		9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		9FE6BB492AEEE241007905FB /* SparklineTransformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklineTransformers.swift; sourceTree = "<group>"; };
+		9FE6BB4C2AEEF105007905FB /* CryptoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		9FA8598F2AEE7CCA006F30EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9FE6BB4B2AEEF0F4007905FB /* Rows */,
 				9FA859AD2AEE875D006F30EE /* CustomTabBar */,
 			);
 			path = Views;
@@ -293,6 +296,14 @@
 				9FE6BB492AEEE241007905FB /* SparklineTransformers.swift */,
 			);
 			path = Transformers;
+			sourceTree = "<group>";
+		};
+		9FE6BB4B2AEEF0F4007905FB /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				9FE6BB4C2AEEF105007905FB /* CryptoRow.swift */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +459,7 @@
 				9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */,
 				9F94A8912AEEB76900169871 /* Formatters.swift in Sources */,
 				9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */,
+				9FE6BB4D2AEEF105007905FB /* CryptoRow.swift in Sources */,
 				9FA859BD2AEE9497006F30EE /* BaseNetworkManager.swift in Sources */,
 				9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */,
 				9FE6BB4A2AEEE241007905FB /* SparklineTransformers.swift in Sources */,
@@ -620,7 +632,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -651,7 +663,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
