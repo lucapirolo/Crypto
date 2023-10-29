@@ -16,6 +16,8 @@
 		9FA859722AEE72B9006F30EE /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859712AEE72B9006F30EE /* CryptoTests.swift */; };
 		9FA8597C2AEE72B9006F30EE /* CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8597B2AEE72B9006F30EE /* CryptoUITests.swift */; };
 		9FA8597E2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8597D2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift */; };
+		9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859932AEE7D02006F30EE /* HomeView.swift */; };
+		9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859952AEE7D44006F30EE /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		9FA859772AEE72B9006F30EE /* CryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA8597B2AEE72B9006F30EE /* CryptoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUITests.swift; sourceTree = "<group>"; };
 		9FA8597D2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9FA859932AEE7D02006F30EE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9FA859952AEE7D44006F30EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,12 @@
 		9FA8595A2AEE72B8006F30EE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				9FA8598F2AEE7CCA006F30EE /* Views */,
+				9FA8598E2AEE7CC1006F30EE /* Utils */,
+				9FA8598D2AEE7CB2006F30EE /* Screens */,
+				9FA8598C2AEE7CAB006F30EE /* Models */,
+				9FA8598B2AEE7CA3006F30EE /* Managers */,
+				9FA8598A2AEE7C94006F30EE /* Extensions */,
 				9FA8595B2AEE72B8006F30EE /* CryptoApp.swift */,
 				9FA8595D2AEE72B8006F30EE /* ContentView.swift */,
 				9FA8595F2AEE72B9006F30EE /* Assets.xcassets */,
@@ -131,6 +141,58 @@
 				9FA8597D2AEE72B9006F30EE /* CryptoUITestsLaunchTests.swift */,
 			);
 			path = CryptoUITests;
+			sourceTree = "<group>";
+		};
+		9FA8598A2AEE7C94006F30EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9FA8598B2AEE7CA3006F30EE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9FA8598C2AEE7CAB006F30EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9FA8598D2AEE7CB2006F30EE /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9FA859902AEE7CE1006F30EE /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		9FA8598E2AEE7CC1006F30EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9FA8598F2AEE7CCA006F30EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9FA859902AEE7CE1006F30EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9FA859932AEE7D02006F30EE /* HomeView.swift */,
+				9FA859952AEE7D44006F30EE /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +326,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
+				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
 				9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */,
 				9FA8595E2AEE72B8006F30EE /* ContentView.swift in Sources */,
+				9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */,
 				9FA8595C2AEE72B8006F30EE /* CryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +497,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +527,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
