@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var tabSelection: TabBarItem = .home
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .foregroundColor(.admiral)
+        CustomTabBarContainerView(selection: $tabSelection) {
+            Text("Home")
+                .tabBarItem(tab: .home, selection: $tabSelection)
+            
+            Text("Acounts")
+                .tabBarItem(tab: .accounts, selection: $tabSelection)
+            
+            Text("Track")
+                .tabBarItem(tab: .track, selection: $tabSelection)
+            
+            Text("Card")
+                .tabBarItem(tab: .card, selection: $tabSelection)
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 
@@ -19,3 +33,4 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+

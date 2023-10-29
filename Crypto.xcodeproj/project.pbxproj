@@ -24,6 +24,10 @@
 		9FA859A82AEE8471006F30EE /* Acumin-RPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859A42AEE8471006F30EE /* Acumin-RPro.ttf */; };
 		9FA859A92AEE8471006F30EE /* Acumin-BdPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FA859A52AEE8471006F30EE /* Acumin-BdPro.ttf */; };
 		9FA859AC2AEE85C0006F30EE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859AB2AEE85C0006F30EE /* Fonts.swift */; };
+		9FA859AF2AEE877A006F30EE /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859AE2AEE877A006F30EE /* CustomTabBarContainerView.swift */; };
+		9FA859B12AEE8798006F30EE /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B02AEE8798006F30EE /* CustomTabBarView.swift */; };
+		9FA859B32AEE87B9006F30EE /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B22AEE87B9006F30EE /* TabBarItem.swift */; };
+		9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA859B42AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,10 @@
 		9FA859A52AEE8471006F30EE /* Acumin-BdPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acumin-BdPro.ttf"; sourceTree = "<group>"; };
 		9FA859AA2AEE84CB006F30EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9FA859AB2AEE85C0006F30EE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		9FA859AE2AEE877A006F30EE /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
+		9FA859B02AEE8798006F30EE /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		9FA859B22AEE87B9006F30EE /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		9FA859B42AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 		9FA8598F2AEE7CCA006F30EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9FA859AD2AEE875D006F30EE /* CustomTabBar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +230,17 @@
 				9FA859A42AEE8471006F30EE /* Acumin-RPro.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9FA859AD2AEE875D006F30EE /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9FA859AE2AEE877A006F30EE /* CustomTabBarContainerView.swift */,
+				9FA859B02AEE8798006F30EE /* CustomTabBarView.swift */,
+				9FA859B22AEE87B9006F30EE /* TabBarItem.swift */,
+				9FA859B42AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift */,
+			);
+			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,9 +378,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FA859AC2AEE85C0006F30EE /* Fonts.swift in Sources */,
+				9FA859B12AEE8798006F30EE /* CustomTabBarView.swift in Sources */,
 				9FA859682AEE72B9006F30EE /* Crypto.xcdatamodeld in Sources */,
+				9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */,
 				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
+				9FA859B32AEE87B9006F30EE /* TabBarItem.swift in Sources */,
 				9FA859652AEE72B9006F30EE /* Persistence.swift in Sources */,
+				9FA859AF2AEE877A006F30EE /* CustomTabBarContainerView.swift in Sources */,
 				9FA859982AEE7F3C006F30EE /* Colors.swift in Sources */,
 				9FA8595E2AEE72B8006F30EE /* ContentView.swift in Sources */,
 				9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */,
