@@ -12,15 +12,14 @@ struct HomeView: View {
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
-            Text("Home")
-                .tabBarItem(tab: .home, selection: $tabSelection)
+            Text("Track")
+                .tabBarItem(tab: .track, selection: $tabSelection)
+            
             
             Text("Acounts")
                 .tabBarItem(tab: .accounts, selection: $tabSelection)
             
-            Text("Track")
-                .tabBarItem(tab: .track, selection: $tabSelection)
-            
+        
             Text("Card")
                 .tabBarItem(tab: .card, selection: $tabSelection)
         }
