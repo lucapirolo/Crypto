@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F66" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CryptoCurrencyEntity" representedClassName="CryptoCurrencyEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="ath" attributeType="Double"/>
+        <attribute name="athChangePercentage" attributeType="Double"/>
+        <attribute name="athDate" attributeType="Date"/>
+        <attribute name="atl" attributeType="Double"/>
+        <attribute name="atlChangePercentage" attributeType="Double"/>
+        <attribute name="atlDate" attributeType="Date"/>
+        <attribute name="circulatingSupply" attributeType="Double"/>
+        <attribute name="currentPrice" attributeType="Double"/>
+        <attribute name="fullyDilutedValuation" optional="YES" attributeType="Integer 64"/>
+        <attribute name="high24h" attributeType="Double"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="image" attributeType="String"/>
+        <attribute name="lastUpdated" attributeType="Date"/>
+        <attribute name="low24h" attributeType="Double"/>
+        <attribute name="marketCap" attributeType="Integer 64"/>
+        <attribute name="marketCapChange24h" attributeType="Integer 64"/>
+        <attribute name="marketCapChangePercentage24h" attributeType="Double"/>
+        <attribute name="marketCapRank" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="maxSupply" optional="YES" attributeType="Double"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="priceChange24h" attributeType="Double"/>
+        <attribute name="priceChangePercentage24h" attributeType="Double"/>
+        <attribute name="symbol" attributeType="String"/>
+        <attribute name="totalSupply" optional="YES" attributeType="Double"/>
+        <attribute name="totalVolume" attributeType="Integer 64"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+    </entity>
 </model>
