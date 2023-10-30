@@ -13,13 +13,14 @@ struct CryptoRow: View {
     var body: some View {
         HStack {
             RankLabel(rank: crypto.marketCapRank)
-            CryptoImageView(imageURL: crypto.image)
+            CryptoImageView(imageURL: crypto.image, width: 30, height: 30, cornerRadius: 8)
             CryptoDetails(name: crypto.name, symbol: crypto.symbol)
             Spacer()
             SparklineChart(data: crypto.sparklineIn7D.price)
             VStack(alignment: .trailing) {
                 PriceLabel(price: crypto.formattedCurrentPrice)
-                PriceChangeView(isPositive: crypto.isPriceChangePositive, text: crypto.formattedPriceChangePercentage)
+                PriceChangeView(crypto: crypto)
+                    .font(.footnote)
             }
         }
         .padding(EdgeInsets(top: 20, leading: 26, bottom: 20, trailing: 26))
@@ -46,25 +47,6 @@ private struct RankLabel: View {
     }
 }
 
-private struct CryptoImageView: View {
-    let imageURL: String
-    
-    var body: some View {
-        AsyncImage(url: URL(string: imageURL)) { phase in
-            switch phase {
-            case .empty:
-                Color.secondary.frame(width: 30, height: 30).cornerRadius(8)
-            case .success(let image):
-                image.resizable().aspectRatio(contentMode: .fill).transition(.opacity)
-            case .failure:
-                Image(systemName: "photo").frame(width: 30, height: 30).cornerRadius(8)
-            @unknown default:
-                EmptyView()
-            }
-        }
-        .frame(width: 25, height: 25)
-    }
-}
 
 private struct CryptoDetails: View {
     let name: String
@@ -88,13 +70,17 @@ private struct PriceLabel: View {
     }
 }
 
-private struct PriceChangeView: View {
+struct PriceChangeView: View {
     let isPositive: Bool
     let text: String
     
+    init(crypto: Cryptocurrency) {
+        self.isPositive = crypto.isPriceChangePositive
+        self.text = crypto.formattedPriceChangePercentage
+    }
+    
     var body: some View {
         Text(text)
-            .font(.footnote)
             .foregroundColor(isPositive ? .green : .red)
             .animation(.easeIn)
     }

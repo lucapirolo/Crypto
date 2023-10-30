@@ -11,6 +11,10 @@ import CoreData
 /// An array of `Cryptocurrency` objects.
 typealias Cryptos = [Cryptocurrency]
 
+extension Cryptos {
+    static let placeholders: Cryptos = Bundle.main.decode(PlaceholderFileNames.markets)
+}
+
 /// Represents a cryptocurrency with its market details returned from the CoinGecko API.
 struct Cryptocurrency: Decodable, Equatable {
     static func == (lhs: Cryptocurrency, rhs: Cryptocurrency) -> Bool {
@@ -243,6 +247,15 @@ extension Cryptocurrency {
         }
         return formattedPrice
     }
+    
+    var formattedCurrentPriceWithoutCurrency: String {
+        guard let formattedPrice = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: currentPrice)) else {
+            return "0.00"
+        }
+        // Assuming the formatter includes the pound sign, remove it.
+        return formattedPrice.replacingOccurrences(of: "£", with: "")
+    }
+
 
     var isPriceChangePositive: Bool {
         return priceChangePercentage24h >= 0
@@ -252,7 +265,7 @@ extension Cryptocurrency {
         let percentageValue = priceChangePercentage24h / 100.0
         return Cryptocurrency.percentageFormatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
     }
-
+    
 }
 
 

@@ -23,3 +23,7 @@ enum ApiEnpoints {
     //MARK: - Coin Gecko Api Endpoints
     static let markets = "markets"
 }
+
+enum PlaceholderFileNames {
+    static let markets = "markets.json"
+}

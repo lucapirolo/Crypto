@@ -24,7 +24,7 @@ struct HomeView: View {
             Text("Card")
                 .tabBarItem(tab: .card, selection: $tabSelection)
         }
-        .background(colorScheme == .dark ? Color.midnight : Color(uiColor: UIColor.systemBackground)) 
+        .adaptiveBackgroundColor()
         .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }

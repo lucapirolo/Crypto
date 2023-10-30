@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9F2FA1C32AEFBF2300A8621D /* SparklineCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1C22AEFBF2300A8621D /* SparklineCharts.swift */; };
+		9F2FA1C62AEFC3F900A8621D /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1C52AEFC3F900A8621D /* CryptoDetailView.swift */; };
+		9F2FA1CB2AEFC4B900A8621D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1CA2AEFC4B900A8621D /* Bundle.swift */; };
+		9F2FA1CF2AEFCA8A00A8621D /* markets.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1CE2AEFCA8A00A8621D /* markets.json */; };
+		9F2FA1D22AEFCDFB00A8621D /* CryptoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D12AEFCDFB00A8621D /* CryptoImageView.swift */; };
 		9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A88E2AEEAF9600169871 /* Alert.swift */; };
 		9F94A8912AEEB76900169871 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8902AEEB76900169871 /* Formatters.swift */; };
 		9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8922AEECBDD00169871 /* UIKit.swift */; };
@@ -62,6 +66,10 @@
 
 /* Begin PBXFileReference section */
 		9F2FA1C22AEFBF2300A8621D /* SparklineCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklineCharts.swift; sourceTree = "<group>"; };
+		9F2FA1C52AEFC3F900A8621D /* CryptoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
+		9F2FA1CA2AEFC4B900A8621D /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		9F2FA1CE2AEFCA8A00A8621D /* markets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = markets.json; sourceTree = "<group>"; };
+		9F2FA1D12AEFCDFB00A8621D /* CryptoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoImageView.swift; sourceTree = "<group>"; };
 		9F94A88E2AEEAF9600169871 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9F94A8902AEEB76900169871 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		9F94A8922AEECBDD00169871 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
@@ -134,6 +142,30 @@
 			path = Charts;
 			sourceTree = "<group>";
 		};
+		9F2FA1C42AEFC3E800A8621D /* CryptoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9F2FA1C52AEFC3F900A8621D /* CryptoDetailView.swift */,
+			);
+			path = CryptoDetail;
+			sourceTree = "<group>";
+		};
+		9F2FA1C72AEFC44200A8621D /* Placeholders */ = {
+			isa = PBXGroup;
+			children = (
+				9F2FA1CE2AEFCA8A00A8621D /* markets.json */,
+			);
+			path = Placeholders;
+			sourceTree = "<group>";
+		};
+		9F2FA1D02AEFCDEA00A8621D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9F2FA1D12AEFCDFB00A8621D /* CryptoImageView.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		9FA8594F2AEE72B8006F30EE = {
 			isa = PBXGroup;
 			children = (
@@ -157,11 +189,11 @@
 		9FA8595A2AEE72B8006F30EE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1C72AEFC44200A8621D /* Placeholders */,
 				9FA859AA2AEE84CB006F30EE /* Info.plist */,
 				9FA859992AEE824F006F30EE /* Fonts */,
 				9FA8598F2AEE7CCA006F30EE /* Views */,
 				9FA8598E2AEE7CC1006F30EE /* Utils */,
-				9FA8598D2AEE7CB2006F30EE /* Screens */,
 				9FA8598C2AEE7CAB006F30EE /* Models */,
 				9FA8598B2AEE7CA3006F30EE /* Managers */,
 				9FA8598A2AEE7C94006F30EE /* Extensions */,
@@ -207,6 +239,7 @@
 				9F94A8902AEEB76900169871 /* Formatters.swift */,
 				9F94A8922AEECBDD00169871 /* UIKit.swift */,
 				9F94A8942AEECC0000169871 /* View.swift */,
+				9F2FA1CA2AEFC4B900A8621D /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +266,7 @@
 		9FA8598D2AEE7CB2006F30EE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1C42AEFC3E800A8621D /* CryptoDetail */,
 				9FA859B62AEE93B5006F30EE /* Track */,
 				9FA859902AEE7CE1006F30EE /* Home */,
 			);
@@ -242,6 +276,7 @@
 		9FA8598E2AEE7CC1006F30EE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9FA8598D2AEE7CB2006F30EE /* Screens */,
 				9FA859C52AEE958E006F30EE /* Constants.swift */,
 				9F94A88E2AEEAF9600169871 /* Alert.swift */,
 			);
@@ -251,6 +286,7 @@
 		9FA8598F2AEE7CCA006F30EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1D02AEFCDEA00A8621D /* Images */,
 				9F2FA1C12AEFBF1100A8621D /* Charts */,
 				9FE6BB4B2AEEF0F4007905FB /* Rows */,
 				9FA859AD2AEE875D006F30EE /* CustomTabBar */,
@@ -410,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2FA1CF2AEFCA8A00A8621D /* markets.json in Resources */,
 				9FA859A72AEE8471006F30EE /* Acumin-BdItPro.ttf in Resources */,
 				9FA859A92AEE8471006F30EE /* Acumin-BdPro.ttf in Resources */,
 				9FA859A62AEE8471006F30EE /* Acumin-ItPro.ttf in Resources */,
@@ -447,6 +484,7 @@
 				9FA859B92AEE93C8006F30EE /* TrackViewModel.swift in Sources */,
 				9FA859BF2AEE94A5006F30EE /* NetworkManager.swift in Sources */,
 				9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */,
+				9F2FA1D22AEFCDFB00A8621D /* CryptoImageView.swift in Sources */,
 				9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */,
 				9F94A8952AEECC0000169871 /* View.swift in Sources */,
 				9FA859962AEE7D44006F30EE /* HomeViewModel.swift in Sources */,
@@ -459,7 +497,9 @@
 				9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */,
 				9F2FA1C32AEFBF2300A8621D /* SparklineCharts.swift in Sources */,
 				9F94A8912AEEB76900169871 /* Formatters.swift in Sources */,
+				9F2FA1CB2AEFC4B900A8621D /* Bundle.swift in Sources */,
 				9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */,
+				9F2FA1C62AEFC3F900A8621D /* CryptoDetailView.swift in Sources */,
 				9FE6BB4D2AEEF105007905FB /* CryptoRow.swift in Sources */,
 				9FA859BD2AEE9497006F30EE /* BaseNetworkManager.swift in Sources */,
 				9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */,

@@ -11,6 +11,7 @@
         <attribute name="high24h" attributeType="Double"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="image" attributeType="String"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastUpdated" attributeType="Date"/>
         <attribute name="low24h" attributeType="Double"/>
         <attribute name="marketCap" attributeType="Integer 64"/>

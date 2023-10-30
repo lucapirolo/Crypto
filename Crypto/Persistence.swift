@@ -26,6 +26,7 @@ struct PersistenceController {
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
     
+    
     /// Saves an array of `Cryptocurrency` objects to the persistent store.
     /// - Parameter cryptos: An array of `Cryptocurrency` objects to be saved.
     func saveCryptocurrencies(_ cryptos: Cryptos) {

@@ -16,4 +16,18 @@ extension View {
         }
     }
     
+    func adaptiveBackgroundColor() -> some View {
+          self.modifier(AdaptiveBackgroundColorModifier())
+      }
+    
+}
+
+
+struct AdaptiveBackgroundColorModifier: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme
+
+    func body(content: Content) -> some View {
+        content
+            .background(colorScheme == .dark ? Color.midnight : Color(uiColor: UIColor.systemBackground))
+    }
 }
