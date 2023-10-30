@@ -3,30 +3,116 @@
 //
 //  Created by Luca Pirolo on 30/10/2023.
 
+
 import SwiftUI
 
 struct CryptoDetailView: View {
-    let crypto: Cryptocurrency
+    let cryptos: Cryptos
+    @State var index: Int
+    @State var price: Double?
+    
+    var crypto: Cryptocurrency {
+        return cryptos[index]
+    }
     
     var body: some View {
         VStack {
-            CryptoDetailContent(crypto: crypto)
+            CryptoDetailContent(crypto: crypto, price: $price)
+            interactiveChartView()
+            marketDataSection()
+            Spacer()
+            nextButton()
             Spacer()
         }
         .padding(.top, 30)
         .adaptiveBackgroundColor()
         .navigationTitle(crypto.name)
     }
+    
+    private func nextButton() -> some View {
+          Button(action: {
+              withAnimation {
+                  index += 1
+                  price = crypto.currentPrice
+              }
+          }) {
+              Text("Next Coin")
+                  .fontWeight(.semibold)
+                  .foregroundColor(.white)
+                  .padding()
+                  .frame(maxWidth: .infinity)
+                  .background(LinearGradient(gradient: Gradient(colors: [.lagoon, .lagoon.opacity(0.8)]), startPoint: .top, endPoint: .bottom))
+                  .cornerRadius(8)
+                  .shadow(radius: 5)
+                  .padding(.horizontal)
+          }
+          .disabled(index >= cryptos.count - 1)  // Disable the button if there are no more items
+      }
+
+    private func interactiveChartView() -> some View {
+        InteractiveSparklineChartView(
+            selectedPrice: $price,
+            initialPrice: crypto.currentPrice,
+            data: crypto.sparklineIn7D.price,
+            color: .lagoon,
+            chartPlotPadding: 0.40
+        )
+        .padding(.horizontal)
+    }
+    
+    private func marketDataSection() -> some View {
+        Section {
+            HStack {
+                MarketDataItem(title: "Market Cap", value: crypto.marketCap.formattedAsShort())
+                    .frame(maxWidth: .infinity)  // Makes this item take up equal width
+
+                MarketDataItem(title: "Total Volume", value: crypto.totalVolume.formattedAsShort())
+                    .frame(maxWidth: .infinity)  // Makes this item take up equal width
+
+                MarketDataItem(title: "Rank", value: "#\(crypto.marketCapRank)")
+                    .frame(maxWidth: .infinity)  // Makes this item take up equal width
+            }
+            .padding(.top, 8)
+            .padding(.horizontal, 20)
+        } header: {
+            HStack {
+                Text("Market Data")
+                    .font(.system(size: 14, weight: .semibold))
+                    .textCase(.uppercase)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .padding(.horizontal)
+        }
+    }
 }
+
+private struct MarketDataItem: View {
+    var title: String
+    var value: String
+    
+    var body: some View {
+        VStack {
+            Text(title)
+                .font(.system(size: 12, weight: .semibold))
+                .textCase(.uppercase)
+                .foregroundColor(.secondary)
+            Text(value)
+                .animation(.easeIn)
+        }
+    }
+}
+
 
 private struct CryptoDetailContent: View {
     let crypto: Cryptocurrency
+    @Binding var price: Double?
     
     var body: some View {
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
                 CryptoHeader(crypto: crypto)
-                CryptoPrice(price: crypto.formattedCurrentPriceWithoutCurrency)
+                CryptoPrice(price: $price)
                 
             }
             Spacer()
@@ -58,12 +144,12 @@ private struct CryptoName: View {
 }
 
 private struct CryptoPrice: View {
-    let price: String
-    
+    @Binding var price: Double?
     var body: some View {
         HStack(spacing: 5) {
             SecondaryText(text: "£", fontSize: 24)
-            PrimaryText(text: price, fontSize: 32)
+            PrimaryText(text: price?.formattedCurrencyWithoutSymbol ?? "", fontSize: 32)
+       
             SecondaryText(text: " GBP", fontSize: 18)
         }
     }
@@ -92,6 +178,6 @@ private struct SecondaryText: View {
 
 struct CryptoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CryptoDetailView(crypto: Cryptos.placeholders[0])
+        CryptoDetailView(cryptos: Cryptos.placeholders, index: 1)
     }
 }

@@ -30,7 +30,7 @@ struct CryptoRow: View {
 private struct SparklineChart: View {
     let data: [Double]
     var body: some View {
-        SparklineSmallChartView(data: data)
+        SparklineChartView(data: data)
             .frame(height: 30)
             .padding(.leading, 60)
             .padding(.trailing, 12)

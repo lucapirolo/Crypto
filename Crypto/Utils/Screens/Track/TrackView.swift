@@ -63,7 +63,7 @@ struct TrackView: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(filteredCryptos, id: \.id) { crypto in
-                    NavigationLink(destination: CryptoDetailView(crypto: crypto)) {
+                    NavigationLink(destination: CryptoDetailView(cryptos: cryptos, index: cryptos.lastIndex(of: crypto) ?? 0)) {
                         CryptoRow(crypto: crypto)
                             .transition(.slide)
                             .animation(.easeInOut, value: filteredCryptos)

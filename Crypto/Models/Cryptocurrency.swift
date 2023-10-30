@@ -266,6 +266,8 @@ extension Cryptocurrency {
         return Cryptocurrency.percentageFormatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
     }
     
+
+
 }
 
 
