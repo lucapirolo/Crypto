@@ -23,9 +23,7 @@ struct HomeView: View {
             Text("Acounts")
                 .tabBarItem(tab: .accounts, selection: $tabSelection)
             
-        
-            Text("Card")
-                .tabBarItem(tab: .card, selection: $tabSelection)
+
         }
         .adaptiveBackgroundColor()
         .ignoresSafeArea(.keyboard, edges: .bottom)

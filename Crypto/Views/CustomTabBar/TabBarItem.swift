@@ -13,7 +13,7 @@ enum TabBarItem: Hashable {
     var iconName: String {
         switch self {
         case .home: return "house"
-        case .accounts: return "wallet.pass"
+        case .accounts: return "person.crop.circle"
         case .track: return "chart.line.uptrend.xyaxis"
         case .card: return "creditcard"
         }
