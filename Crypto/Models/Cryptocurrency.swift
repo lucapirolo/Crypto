@@ -12,7 +12,11 @@ import CoreData
 typealias Cryptos = [Cryptocurrency]
 
 /// Represents a cryptocurrency with its market details returned from the CoinGecko API.
-struct Cryptocurrency: Decodable {
+struct Cryptocurrency: Decodable, Equatable {
+    static func == (lhs: Cryptocurrency, rhs: Cryptocurrency) -> Bool {
+          return lhs.id == rhs.id
+      }
+    
     /// Unique identifier for the cryptocurrency.
     let id: String
 
@@ -111,22 +115,39 @@ struct Cryptocurrency: Decodable {
     }
 }
 
-
 struct SparklineIn7D: Codable {
     let price: [Double]
+
+    enum CodingKeys: String, CodingKey {
+        case price
+    }
+
+    func encodeToData() throws -> Data {
+        let encoder = JSONEncoder()
+        return try encoder.encode(self)
+    }
+
+    static func decodeFromData(_ data: Data) throws -> SparklineIn7D {
+        let decoder = JSONDecoder()
+        return try decoder.decode(SparklineIn7D.self, from: data)
+    }
 }
+
 
 // MARK: - Extension for CryptoCurrencyEntity
 extension CryptoCurrencyEntity {
     /// Converts a `CryptoCurrencyEntity` to a `Cryptocurrency`.
     func toModel() -> Cryptocurrency {
-        let sparklinePrices: [Double] = {
-                  if let data = sparklineIn7D,
-                     let sparkline = SparklineTransformer().transformedValue(data) as? [Double] {
-                      return sparkline
-                  }
-                  return []
-              }()
+        var sparkline: SparklineIn7D? = nil
+               
+               // Decode SparklineIn7D if available
+               if let sparklineData = sparklineIn7D {
+                   do {
+                       sparkline = try SparklineIn7D.decodeFromData(sparklineData)
+                   } catch {
+                       print("Error decoding sparkline data: \(error)")
+                   }
+               }
         
         return Cryptocurrency(
             id: id ?? "",
@@ -151,41 +172,48 @@ extension CryptoCurrencyEntity {
             athChangePercentage: athChangePercentage,
             atl: atl,
             atlChangePercentage: atlChangePercentage,
-            lastUpdated: lastUpdated ?? Date.now, sparklineIn7D: SparklineIn7D(price: sparklinePrices)
+            lastUpdated: lastUpdated ?? Date.now,
+            sparklineIn7D: sparkline ?? SparklineIn7D(price: [])
         )
     }
 }
 
-extension Cryptocurrency {
-    
-    var formattedCurrentPrice: String {
-       let formatter = NumberFormatter()
-       formatter.numberStyle = .currency
-       formatter.currencyCode = "GBP"
-       formatter.locale = Locale(identifier: "en_GB") // Optional, if you want to enforce UK locale
-       
-       // Using currentPrice to format as currency
-       guard let formattedPrice = formatter.string(from: NSNumber(value: currentPrice)) else {
-           return "£0.00"
-       }
-       return formattedPrice
-   }
-    
-    var isPriceChangePositive: Bool {
-           return priceChangePercentage24h >= 0
-       }
-    
-    var formattedPriceChangePercentage: String {
-           let formatter = NumberFormatter()
-           formatter.numberStyle = .percent
-           formatter.maximumFractionDigits = 2
-           formatter.minimumFractionDigits = 2
-           formatter.positivePrefix = formatter.plusSign
-           
-           let percentageValue = priceChangePercentage24h / 100.0
-           return formatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
-       }
+private extension Cryptocurrency {
+    static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = "GBP"
+        formatter.locale = Locale(identifier: "en_GB")
+        return formatter
+    }()
 
+    static let percentageFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        formatter.positivePrefix = formatter.plusSign
+        return formatter
+    }()
+
+    var formattedCurrentPrice: String {
+        guard let formattedPrice = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: currentPrice)) else {
+            return "£0.00"
+        }
+        return formattedPrice
+    }
+
+    var isPriceChangePositive: Bool {
+        return priceChangePercentage24h >= 0
+    }
+
+    var formattedPriceChangePercentage: String {
+        let percentageValue = priceChangePercentage24h / 100.0
+        return Cryptocurrency.percentageFormatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
+    }
+}
+
+extension Cryptocurrency {
     /// Converts a `Cryptocurrency` instance to a `CryptoCurrencyEntity`.
     func toEntity(in context: NSManagedObjectContext) -> CryptoCurrencyEntity {
         let entity = CryptoCurrencyEntity(context: context)
@@ -212,8 +240,11 @@ extension Cryptocurrency {
         entity.atl = atl
         entity.atlChangePercentage = atlChangePercentage
         entity.lastUpdated = lastUpdated
-        if let sparklineData = SparklineTransformer().transformedValue(sparklineIn7D) as? Data {
-            entity.sparklineIn7D = sparklineData
+        do {
+            let data = try sparklineIn7D.encodeToData()
+            entity.sparklineIn7D = data  // Assuming 'sparklineData' is the attribute name in your Core Data model for binary data
+        } catch {
+            print("Error encoding sparkline data: \(error)")
         }
 
         return entity

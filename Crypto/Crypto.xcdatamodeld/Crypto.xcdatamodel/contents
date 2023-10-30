@@ -21,7 +21,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="priceChange24h" attributeType="Double"/>
         <attribute name="priceChangePercentage24h" attributeType="Double"/>
-        <attribute name="sparklineIn7D" optional="YES" attributeType="Transformable" valueTransformerName="SparklineTransformer" customClassName="Data"/>
+        <attribute name="sparklineIn7D" attributeType="Binary" valueTransformerName="SparklineTransformer" customClassName="Data"/>
         <attribute name="symbol" attributeType="String"/>
         <attribute name="totalSupply" optional="YES" attributeType="Double"/>
         <attribute name="totalVolume" attributeType="Integer 64"/>

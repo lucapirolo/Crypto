@@ -36,7 +36,7 @@ struct PersistenceController {
             // Iterate over the array of cryptocurrencies
             for crypto in cryptos {
                 // Convert the `Cryptocurrency` instance to a `CryptoCurrencyEntity`
-                let _ = crypto.toEntity(in: backgroundContext)
+                let entity = crypto.toEntity(in: backgroundContext)
             }
             
             // Save the context if there are changes
