@@ -69,14 +69,16 @@ struct TrackView: View {
                     .buttonStyle(PlainButtonStyle())
                     Divider()
                         .padding(.horizontal)
-                    
                 }
+                Spacer()
+                    .frame(height: 50)  // Add spacer at the bottom
+            }
+            .refreshable {
+                viewModel.loadMarketData(isRefresh: true)
             }
         }
-        .refreshable {
-            viewModel.loadMarketData(isRefresh: true)
-        }
     }
+
     
 }
 
