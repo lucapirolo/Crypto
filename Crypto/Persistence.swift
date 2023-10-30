@@ -51,5 +51,17 @@ struct PersistenceController {
         }
     }
     
+    
+    func fetchCachedCryptos() -> [CryptoCurrencyEntity] {
+        let fetchRequest = NSFetchRequest<CryptoCurrencyEntity>(entityName: "CryptoCurrencyEntity")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \CryptoCurrencyEntity.marketCapRank, ascending: true)]
+        do {
+            let fetchedResults = try container.viewContext.fetch(fetchRequest)
+            return fetchedResults
+        } catch {
+            return []
+        }
+    }
+
 }
 

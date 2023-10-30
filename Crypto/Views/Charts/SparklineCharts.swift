@@ -25,7 +25,7 @@ struct SparklineChartView: View {
                         x: .value("Index", index),
                         y: .value("Value", value)
                     )
-                    
+                    .foregroundStyle(color.gradient)
                      .interpolationMethod(.linear)
             }
         }
@@ -119,17 +119,10 @@ struct PointerView: View {
     
     var body: some View {
         VStack {
-            Text("\(price)")
-                .font(.caption)
-                .padding(5)
-                .background(Color.lagoon)
-                .cornerRadius(5)
-                .shadow(radius: 3)
-                .offset(x: positionOffset(), y: -60)
             Rectangle()
-                .fill(Color.gray)
+                .fill(Color.secondary)
                 .frame(width: 1, height: 30)
-                .offset(x: positionOffset())
+                .offset(x: positionOffset(), y: -65)
         }
     }
     

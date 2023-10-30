@@ -266,7 +266,64 @@ extension Cryptocurrency {
         return Cryptocurrency.percentageFormatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
     }
     
+    var formattedMarketCap: String {
+          guard let formattedMarketCap = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: Double(marketCap))) else {
+              return "£0.00"
+          }
+          return formattedMarketCap
+      }
+      
+      var formattedTotalVolume: String {
+          guard let formattedTotalVolume = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: totalVolume)) else {
+              return "£0.00"
+          }
+          return formattedTotalVolume
+      }
 
+      var formattedHigh24h: String {
+          guard let formattedHigh24h = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: high24h)) else {
+              return "£0.00"
+          }
+          return formattedHigh24h
+      }
+      
+      var formattedLow24h: String {
+          guard let formattedLow24h = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: low24h)) else {
+              return "£0.00"
+          }
+          return formattedLow24h
+      }
+
+      var formattedAllTimeHigh: String {
+          guard let formattedAth = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: ath)) else {
+              return "£0.00"
+          }
+          return formattedAth
+      }
+
+      var formattedAllTimeLow: String {
+          guard let formattedAtl = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: atl)) else {
+              return "£0.00"
+          }
+          return formattedAtl
+      }
+      
+    var formattedCirculatingSupply: String {
+        guard let circulatingSupply = self.totalSupply else { return "N/A" }
+        return circulatingSupply.formattedWithAbbreviations + " \(symbol.uppercased())"
+    }
+
+    var formattedTotalSupply: String {
+        guard let totalSupply = self.totalSupply else { return "N/A" }
+        return totalSupply.formattedWithAbbreviations + " \(symbol.uppercased())"
+    }
+
+    var formattedMaxSupply: String {
+        guard let maxSupply = self.maxSupply else { return "N/A" }
+        return maxSupply.formattedWithAbbreviations + " \(symbol.uppercased())"
+    }
+
+    
 
 }
 

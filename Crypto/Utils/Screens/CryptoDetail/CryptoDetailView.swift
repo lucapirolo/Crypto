@@ -27,6 +27,9 @@ struct CryptoDetailView: View {
         .padding(.top, 30)
         .adaptiveBackgroundColor()
         .navigationTitle(crypto.name)
+        .onAppear {
+            price = crypto.currentPrice
+        }
     }
     
     private func nextButton() -> some View {
@@ -37,15 +40,12 @@ struct CryptoDetailView: View {
               }
           }) {
               Text("Next Coin")
-                  .fontWeight(.semibold)
-                  .foregroundColor(.white)
-                  .padding()
-                  .frame(maxWidth: .infinity)
-                  .background(LinearGradient(gradient: Gradient(colors: [.lagoon, .lagoon.opacity(0.8)]), startPoint: .top, endPoint: .bottom))
-                  .cornerRadius(8)
-                  .shadow(radius: 5)
-                  .padding(.horizontal)
+                  .font(.headline)
+                  .frame(maxWidth: 300)
           }
+          .tint(Color.lagoon)
+          .buttonStyle(.bordered)
+          .controlSize(.large)
           .disabled(index >= cryptos.count - 1)  // Disable the button if there are no more items
       }
 
@@ -62,27 +62,31 @@ struct CryptoDetailView: View {
     
     private func marketDataSection() -> some View {
         Section {
-            HStack {
-                MarketDataItem(title: "Market Cap", value: crypto.marketCap.formattedAsShort())
-                    .frame(maxWidth: .infinity)  // Makes this item take up equal width
+            VStack {
+                HStack {
+                    MarketDataItem(title: "Market Cap", value: crypto.marketCap.formattedAsShort())
+                        .frame(maxWidth: .infinity)  // Makes this item take up equal width
 
-                MarketDataItem(title: "Total Volume", value: crypto.totalVolume.formattedAsShort())
-                    .frame(maxWidth: .infinity)  // Makes this item take up equal width
+                    MarketDataItem(title: "Total Volume", value: crypto.totalVolume.formattedAsShort())
+                        .frame(maxWidth: .infinity)  // Makes this item take up equal width
 
-                MarketDataItem(title: "Rank", value: "#\(crypto.marketCapRank)")
-                    .frame(maxWidth: .infinity)  // Makes this item take up equal width
+                    MarketDataItem(title: "Rank", value: "#\(crypto.marketCapRank)")
+                        .frame(maxWidth: .infinity)  // Makes this item take up equal width
+                }
+                .padding(.top, 8)
+                .padding(.horizontal, 20)
+                Divider()
+                
+                MarketDataView(crypto: crypto)
+                
             }
-            .padding(.top, 8)
-            .padding(.horizontal, 20)
+          
         } header: {
-            HStack {
                 Text("Market Data")
                     .font(.system(size: 14, weight: .semibold))
                     .textCase(.uppercase)
                     .foregroundColor(.secondary)
-                Spacer()
-            }
-            .padding(.horizontal)
+                    
         }
     }
 }
@@ -181,3 +185,63 @@ struct CryptoDetailView_Previews: PreviewProvider {
         CryptoDetailView(cryptos: Cryptos.placeholders, index: 1)
     }
 }
+
+
+
+struct MarketDataRowItem: View {
+    var title: String
+    var value: String
+
+    var body: some View {
+        HStack(spacing: 5) {
+            Text(title)
+                .font(.system(size: 12))
+                .foregroundColor(.secondary)
+            Text(value)
+                .font(.system(size: 12))
+                .animation(.easeIn)
+        }
+    }
+}
+
+struct MarketDataRow: View {
+    var leftTitle: String
+    var leftValue: String
+    var rightTitle: String
+    var rightValue: String
+    
+
+    var body: some View {
+        HStack(spacing: 20) {
+            MarketDataRowItem(title: leftTitle, value: leftValue)
+             Spacer()
+            MarketDataRowItem(title: rightTitle, value: rightValue)
+        }
+    }
+}
+
+struct MarketDataView: View {
+    let crypto: Cryptocurrency
+    var body: some View {
+        VStack(alignment: .center, spacing: 10) {
+            MarketDataRow(
+                          leftTitle: "Circulating",
+                          leftValue: crypto.formattedCirculatingSupply,
+                          rightTitle: "Max Supply",
+                          rightValue: crypto.formattedMaxSupply
+                      )
+                      
+                      MarketDataRow(
+                          leftTitle: "ATL",
+                          leftValue: crypto.formattedAllTimeLow,
+                          rightTitle: "ATH",
+                          rightValue: crypto.formattedAllTimeHigh
+                      )
+        }
+        .padding(20)
+  
+    }
+}
+
+
+

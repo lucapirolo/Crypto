@@ -9,32 +9,30 @@ import SwiftUI
 import Charts
 
 struct TrackView: View {
-    @StateObject private var viewModel = TrackViewModel()
+    @ObservedObject var viewModel: TrackViewModel
     @Environment(\.colorScheme) private var colorScheme
     @State private var searchText = ""
     
-    @FetchRequest(
-        entity: CryptoCurrencyEntity.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \CryptoCurrencyEntity.marketCapRank, ascending: true)]
-    ) var cachedCryptoCurrencies: FetchedResults<CryptoCurrencyEntity>
+
     
     var cryptos: Cryptos {
-        return viewModel.cryptos ?? cachedCryptoCurrencies.map { $0.toModel() }
+        return viewModel.cryptos ?? viewModel.cachedCryptos.map { $0.toModel() }
     }
-    
+
     var filteredCryptos: Cryptos {
-        if searchText.isEmpty {
-            return viewModel.cryptos ?? cachedCryptoCurrencies.map { $0.toModel() }
-        } else {
-            return (viewModel.cryptos ?? cachedCryptoCurrencies.map { $0.toModel() }).filter { crypto in
-                crypto.name.lowercased().contains(searchText.lowercased())
-            }
+        guard !searchText.isEmpty else {
+            return cryptos
+        }
+        
+        return cryptos.filter { crypto in
+            crypto.name.lowercased().contains(searchText.lowercased())
         }
     }
-    
-    init() {
-        UINavigationBar.configureCryptoNavBarAppearance()
-    }
+
+    init(viewModel: TrackViewModel) {
+           self.viewModel = viewModel
+           UINavigationBar.configureCryptoNavBarAppearance()
+       }
     
     var body: some View {
         NavigationView {
@@ -53,7 +51,7 @@ struct TrackView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Track Coins")
             .onAppear {
-//                viewModel.loadMarketData()
+                viewModel.loadMarketData()
             }
             .showAlert(alert: $viewModel.alert)
         }
@@ -76,7 +74,7 @@ struct TrackView: View {
             }
         }
         .refreshable {
-            viewModel.loadMarketData()
+            viewModel.loadMarketData(isRefresh: true)
         }
     }
     
@@ -86,7 +84,7 @@ struct TrackView: View {
 
 struct TrackView_Previews: PreviewProvider {
     static var previews: some View {
-        TrackView()
+        TrackView(viewModel: TrackViewModel())
     }
 }
 

@@ -16,7 +16,7 @@ struct CryptoRow: View {
             CryptoImageView(imageURL: crypto.image, width: 30, height: 30, cornerRadius: 8)
             CryptoDetails(name: crypto.name, symbol: crypto.symbol)
             Spacer()
-            SparklineChart(data: crypto.sparklineIn7D.price)
+            SparklineChart(data: crypto.sparklineIn7D.price, isPostiveChange: crypto.isPriceChangePositive)
             VStack(alignment: .trailing) {
                 PriceLabel(price: crypto.formattedCurrentPrice)
                 PriceChangeView(crypto: crypto)
@@ -29,8 +29,9 @@ struct CryptoRow: View {
 
 private struct SparklineChart: View {
     let data: [Double]
+    let isPostiveChange: Bool
     var body: some View {
-        SparklineChartView(data: data)
+        SparklineChartView(data: data, color: isPostiveChange ? .green : .red)
             .frame(height: 30)
             .padding(.leading, 60)
             .padding(.trailing, 12)

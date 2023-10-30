@@ -13,7 +13,7 @@ final class NetworkManager: BaseNetworkManager {
     /// Retrieves market data for cryptocurrencies.
     /// - Parameter pagination: The pagination parameters to control data fetching.
     /// - Returns: A result containing an array of `Cryptocurrency`
-    func getMarketData(pagination: Pagination) async throws -> Cryptos? {
+    func getMarketData() async throws -> Cryptos? {
         let endpoint = "/" + ApiControllers.coins + "/" + ApiEnpoints.markets
 
         let queryParams: [String: String] = [
@@ -27,7 +27,7 @@ final class NetworkManager: BaseNetworkManager {
             endpoint,
             method: .get,
             responseType: Cryptos.self,
-            pagination: pagination,
+            pagination: Pagination(page: 1, perPage: 200),
             queryParams: queryParams
         )
     }

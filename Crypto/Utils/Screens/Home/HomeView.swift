@@ -10,10 +10,13 @@ import SwiftUI
 struct HomeView: View {
     @State private var tabSelection: TabBarItem = .track
     @Environment(\.colorScheme) private var colorScheme
+    @StateObject private var trackViewModel = TrackViewModel()
+    
+    
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
-            TrackView()
+            TrackView(viewModel: trackViewModel)
                 .tabBarItem(tab: .track, selection: $tabSelection)
             
             

@@ -11,14 +11,19 @@ final class TrackViewModel: ObservableObject {
     @Published var alert: AlertItem?
     @Published var isLoading = false
     @Published var cryptos: Cryptos?
-    private var pagination = Pagination.standard
-    private var loadMore = true
+    @Published var cachedCryptos: [CryptoCurrencyEntity] = []
     
-    func loadMarketData() {
-        guard loadMore else { return }
+
+    func loadMarketData(isRefresh: Bool = false) {
+        fetchCachedData()
         
-        isLoading = pagination.currentPage == 0
-        
+        if cryptos != nil && !isRefresh {
+              return
+          }
+          
+        guard !isLoading else { return }
+        isLoading = true
+    
         Task {
             do {
                 try await fetchData()
@@ -29,7 +34,7 @@ final class TrackViewModel: ObservableObject {
     }
     
     private func fetchData() async throws {
-        if let response = try await NetworkManager.shared.getMarketData(pagination: pagination) {
+        if let response = try await NetworkManager.shared.getMarketData() {
             processResponse(response)
         } else {
             DispatchQueue.main.async {
@@ -39,24 +44,18 @@ final class TrackViewModel: ObservableObject {
     }
     
     private func processResponse(_ response: Cryptos) {
-        loadMore = response.count == pagination.itemsPerPage
-        if loadMore {
-            pagination.nextPage()
-        }
         // Append new data instead of reassigning
         DispatchQueue.main.async {
-            if self.cryptos == nil {
-                self.cryptos = []
-            }
-            self.cryptos?.append(contentsOf: response)
-            PersistenceController.shared.saveCryptocurrencies(self.cryptos ?? [])
+            self.cryptos = response
+            PersistenceController.shared.saveCryptocurrencies(response)
             self.isLoading = false
         }
-        
-        
-        
-              
     }
+    
+    func fetchCachedData() {
+        self.cachedCryptos = PersistenceController.shared.fetchCachedCryptos()
+    }
+
     
     private func handle(error: Error) {
         DispatchQueue.main.async {
