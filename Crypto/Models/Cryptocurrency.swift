@@ -178,41 +178,6 @@ extension CryptoCurrencyEntity {
     }
 }
 
-private extension Cryptocurrency {
-    static let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "GBP"
-        formatter.locale = Locale(identifier: "en_GB")
-        return formatter
-    }()
-
-    static let percentageFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        formatter.positivePrefix = formatter.plusSign
-        return formatter
-    }()
-
-    var formattedCurrentPrice: String {
-        guard let formattedPrice = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: currentPrice)) else {
-            return "£0.00"
-        }
-        return formattedPrice
-    }
-
-    var isPriceChangePositive: Bool {
-        return priceChangePercentage24h >= 0
-    }
-
-    var formattedPriceChangePercentage: String {
-        let percentageValue = priceChangePercentage24h / 100.0
-        return Cryptocurrency.percentageFormatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
-    }
-}
-
 extension Cryptocurrency {
     /// Converts a `Cryptocurrency` instance to a `CryptoCurrencyEntity`.
     func toEntity(in context: NSManagedObjectContext) -> CryptoCurrencyEntity {
@@ -248,6 +213,44 @@ extension Cryptocurrency {
         }
 
         return entity
+    }
+    
+    static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = "GBP"
+        formatter.locale = Locale(identifier: "en_GB")
+        
+        
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 4
+        
+        return formatter
+    }()
+
+    static let percentageFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        formatter.positivePrefix = formatter.plusSign
+        return formatter
+    }()
+
+    var formattedCurrentPrice: String {
+        guard let formattedPrice = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: currentPrice)) else {
+            return "£0.00"
+        }
+        return formattedPrice
+    }
+
+    var isPriceChangePositive: Bool {
+        return priceChangePercentage24h >= 0
+    }
+
+    var formattedPriceChangePercentage: String {
+        let percentageValue = priceChangePercentage24h / 100.0
+        return Cryptocurrency.percentageFormatter.string(from: NSNumber(value: percentageValue)) ?? "0.00%"
     }
 
 }

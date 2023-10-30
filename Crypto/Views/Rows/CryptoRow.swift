@@ -9,23 +9,30 @@ import SwiftUI
 
 struct CryptoRow: View {
     var crypto: Cryptocurrency
-    let data = [
-           29901.42449962285, 29847.223723902178, // ... (rest of the data)
-           34763.44622176207
-       ]
+
     var body: some View {
         HStack {
             RankLabel(rank: crypto.marketCapRank)
             CryptoImageView(imageURL: crypto.image)
             CryptoDetails(name: crypto.name, symbol: crypto.symbol)
             Spacer()
-            ChartView(sparklineData: crypto.sparklineIn7D)
+            SparklineChart(data: crypto.sparklineIn7D.price)
             VStack(alignment: .trailing) {
                 PriceLabel(price: crypto.formattedCurrentPrice)
                 PriceChangeView(isPositive: crypto.isPriceChangePositive, text: crypto.formattedPriceChangePercentage)
             }
         }
         .padding(EdgeInsets(top: 20, leading: 26, bottom: 20, trailing: 26))
+    }
+}
+
+private struct SparklineChart: View {
+    let data: [Double]
+    var body: some View {
+        SparklineSmallChartView(data: data)
+            .frame(height: 30)
+            .padding(.leading, 60)
+            .padding(.trailing, 12)
     }
 }
 
