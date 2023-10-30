@@ -21,7 +21,10 @@ struct CryptoDetailView: View {
             interactiveChartView()
             marketDataSection()
             Spacer()
-            nextButton()
+            HStack {
+                previousButton
+                nextButton
+            }.padding(.horizontal)
             Spacer()
         }
         .padding(.top, 30)
@@ -32,22 +35,36 @@ struct CryptoDetailView: View {
         }
     }
     
-    private func nextButton() -> some View {
-          Button(action: {
-              withAnimation {
-                  index += 1
-                  price = crypto.currentPrice
-              }
-          }) {
-              Text("Next Coin")
-                  .font(.headline)
-                  .frame(maxWidth: 300)
-          }
-          .tint(Color.lagoon)
-          .buttonStyle(.bordered)
-          .controlSize(.large)
-          .disabled(index >= cryptos.count - 1)  // Disable the button if there are no more items
-      }
+    private func navigationButton(title: String, action: @escaping () -> Void, disabled: Bool) -> some View {
+        Button(action: {
+            withAnimation {
+                action()
+            }
+        }) {
+            Text(title)
+                .font(.headline)
+                .frame(maxWidth: 300)
+        }
+        .tint(Color.lagoon)
+        .buttonStyle(.bordered)
+        .controlSize(.large)
+        .disabled(disabled)
+    }
+
+    private var previousButton: some View {
+        navigationButton(title: "Previous Coin", action: {
+            index -= 1
+            price = crypto.currentPrice
+        }, disabled: index <= 0)
+    }
+
+    private var nextButton: some View {
+        navigationButton(title: "Next Coin", action: {
+            index += 1
+            price = crypto.currentPrice
+        }, disabled: index >= cryptos.count - 1)
+    }
+
 
     private func interactiveChartView() -> some View {
         InteractiveSparklineChartView(
