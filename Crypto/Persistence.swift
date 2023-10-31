@@ -62,6 +62,31 @@ struct PersistenceController {
             return []
         }
     }
+    
+    func setHoldings(for cryptoId: String, holdings: Double) {
+            let backgroundContext = container.newBackgroundContext()
+            backgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            
+            backgroundContext.perform {
+                let fetchRequest = NSFetchRequest<CryptoCurrencyEntity>(entityName: "CryptoCurrencyEntity")
+                fetchRequest.predicate = NSPredicate(format: "id == %@", cryptoId)
+                
+                do {
+                    let fetchedResults = try backgroundContext.fetch(fetchRequest)
+                    if let cryptoEntity = fetchedResults.first {
+                        // Update the holdings property
+                        cryptoEntity.holdings = holdings
+                        
+                        // Save the context if there are changes
+                        if backgroundContext.hasChanges {
+                            try backgroundContext.save()
+                        }
+                    }
+                } catch {
+                    print("Failed to fetch or update cryptocurrency: \(error.localizedDescription)")
+                }
+            }
+        }
 
 }
 

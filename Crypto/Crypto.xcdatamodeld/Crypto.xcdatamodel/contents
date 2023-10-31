@@ -9,6 +9,7 @@
         <attribute name="currentPrice" attributeType="Double"/>
         <attribute name="fullyDilutedValuation" optional="YES" attributeType="Integer 64"/>
         <attribute name="high24h" attributeType="Double"/>
+        <attribute name="holdings" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="image" attributeType="String"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

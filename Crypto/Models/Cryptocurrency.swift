@@ -92,6 +92,10 @@ struct Cryptocurrency: Decodable, Equatable {
     
     /// The prices over the last 7 days
     let sparklineIn7D: SparklineIn7D
+    
+    // Local property to hold the user's holdings of the cryptocurrency.
+    // This property is not part of the JSON and should be ignored during decoding.
+    var holdings: Double = 0.0
 
     /// Coding keys to map JSON keys to the struct properties.
     enum CodingKeys: String, CodingKey {
@@ -177,7 +181,8 @@ extension CryptoCurrencyEntity {
             atl: atl,
             atlChangePercentage: atlChangePercentage,
             lastUpdated: lastUpdated ?? Date.now,
-            sparklineIn7D: sparkline ?? SparklineIn7D(price: [])
+            sparklineIn7D: sparkline ?? SparklineIn7D(price: []),
+            holdings: holdings
         )
     }
 }
