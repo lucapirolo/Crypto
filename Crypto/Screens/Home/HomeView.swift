@@ -20,7 +20,7 @@ struct HomeView: View {
                 .tabBarItem(tab: .track, selection: $tabSelection)
             
             
-            Text("Acounts")
+            AccountsView()
                 .tabBarItem(tab: .accounts, selection: $tabSelection)
             
 

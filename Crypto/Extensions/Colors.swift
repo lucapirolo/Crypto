@@ -42,9 +42,19 @@ extension Color {
     static var midnight: Color { return color(named: BrandColors.midnight) }
     static var slate: Color { return color(named: BrandColors.slate) }
     static var fog: Color { return color(named: BrandColors.fog) }
+    private static let darkModeBackground = midnight
+
 
     // MARK: - Private Helper
     private static func color(named name: String) -> Color {
         return Color(UIColor(named: name) ?? UIColor.clear)
     }
+    
+    static func dynamicBackgroundColor(for colorScheme: ColorScheme) -> Color {
+        // Return a different color based on the color scheme
+        return colorScheme == .dark ? Color.darkModeBackground : Color(uiColor: UIColor.systemBackground)
+    }
+    
+       
+
 }

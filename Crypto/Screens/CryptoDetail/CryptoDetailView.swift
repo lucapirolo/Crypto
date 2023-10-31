@@ -176,7 +176,7 @@ private struct CryptoPrice: View {
     }
 }
 
-private struct PrimaryText: View {
+struct PrimaryText: View {
     let text: String
     let fontSize: CGFloat
 
@@ -186,7 +186,7 @@ private struct PrimaryText: View {
     }
 }
 
-private struct SecondaryText: View {
+struct SecondaryText: View {
     let text: String
     let fontSize: CGFloat
 
