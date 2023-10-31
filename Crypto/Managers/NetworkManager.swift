@@ -17,7 +17,7 @@ final class NetworkManager: BaseNetworkManager {
         let endpoint = "/" + ApiControllers.coins + "/" + ApiEnpoints.markets
 
         let queryParams: [String: String] = [
-            "vs_currency": "usd",
+            "vs_currency": "gbp",
             "order": "market_cap_desc",
             "sparkline": "true",
             "locale": "en"

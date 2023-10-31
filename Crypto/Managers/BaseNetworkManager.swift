@@ -78,7 +78,7 @@ class BaseNetworkManager {
         
         // Perform the network request.
         let (data, response) = try await session.data(for: urlRequest)
-        print(data)
+    
         
         // Validate the HTTP response.
         guard let httpResponse = response as? HTTPURLResponse else {

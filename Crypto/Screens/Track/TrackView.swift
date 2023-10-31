@@ -73,9 +73,9 @@ struct TrackView: View {
                 Spacer()
                     .frame(height: 50)  // Add spacer at the bottom
             }
-            .refreshable {
-                viewModel.loadMarketData(isRefresh: true)
-            }
+            
+        }.refreshable {
+            viewModel.loadMarketData(isRefresh: true)
         }
     }
 

@@ -15,6 +15,8 @@
 		9F2FA1D42AEFEE4B00A8621D /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D32AEFEE4B00A8621D /* NumberExtensions.swift */; };
 		9F2FA1D72AF044B500A8621D /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D62AF044B500A8621D /* AccountsView.swift */; };
 		9F2FA1D92AF1170C00A8621D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D82AF1170C00A8621D /* Account.swift */; };
+		9F2FA1DD2AF139A300A8621D /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */; };
+		9F2FA1E02AF186EF00A8621D /* AddHoldingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */; };
 		9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A88E2AEEAF9600169871 /* Alert.swift */; };
 		9F94A8912AEEB76900169871 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8902AEEB76900169871 /* Formatters.swift */; };
 		9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8922AEECBDD00169871 /* UIKit.swift */; };
@@ -75,6 +77,8 @@
 		9F2FA1D32AEFEE4B00A8621D /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		9F2FA1D62AF044B500A8621D /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 		9F2FA1D82AF1170C00A8621D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
+		9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoldingsSheetView.swift; sourceTree = "<group>"; };
 		9F94A88E2AEEAF9600169871 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9F94A8902AEEB76900169871 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		9F94A8922AEECBDD00169871 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				9F2FA1C52AEFC3F900A8621D /* CryptoDetailView.swift */,
+				9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */,
 			);
 			path = CryptoDetail;
 			sourceTree = "<group>";
@@ -176,6 +181,14 @@
 				9F2FA1D62AF044B500A8621D /* AccountsView.swift */,
 			);
 			path = Accounts;
+			sourceTree = "<group>";
+		};
+		9F2FA1DE2AF186D500A8621D /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 		9FA8594F2AEE72B8006F30EE = {
@@ -301,6 +314,7 @@
 		9FA8598F2AEE7CCA006F30EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1DE2AF186D500A8621D /* Sheets */,
 				9F2FA1D02AEFCDEA00A8621D /* Images */,
 				9F2FA1C12AEFBF1100A8621D /* Charts */,
 				9FE6BB4B2AEEF0F4007905FB /* Rows */,
@@ -501,6 +515,7 @@
 				9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */,
 				9F2FA1D22AEFCDFB00A8621D /* CryptoImageView.swift in Sources */,
 				9FA859B52AEE87DF006F30EE /* TabBarItemsPreferenceKey.swift in Sources */,
+				9F2FA1E02AF186EF00A8621D /* AddHoldingsSheetView.swift in Sources */,
 				9F94A8952AEECC0000169871 /* View.swift in Sources */,
 				9F2FA1D42AEFEE4B00A8621D /* NumberExtensions.swift in Sources */,
 				9FA859B32AEE87B9006F30EE /* TabBarItem.swift in Sources */,
@@ -514,6 +529,7 @@
 				9F2FA1C32AEFBF2300A8621D /* SparklineCharts.swift in Sources */,
 				9F94A8912AEEB76900169871 /* Formatters.swift in Sources */,
 				9F2FA1CB2AEFC4B900A8621D /* Bundle.swift in Sources */,
+				9F2FA1DD2AF139A300A8621D /* CryptoDetailViewModel.swift in Sources */,
 				9FA859C82AEE963E006F30EE /* Pagination.swift in Sources */,
 				9F2FA1C62AEFC3F900A8621D /* CryptoDetailView.swift in Sources */,
 				9FE6BB4D2AEEF105007905FB /* CryptoRow.swift in Sources */,

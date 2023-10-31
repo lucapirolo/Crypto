@@ -10,62 +10,113 @@ struct CryptoDetailView: View {
     let cryptos: Cryptos
     @State var index: Int
     @State var price: Double?
+    @State private var showingAddHoldingsSheet = false
+    @ObservedObject var viewModel: CryptoDetailViewModel = CryptoDetailViewModel()
     
     var crypto: Cryptocurrency {
         return cryptos[index]
     }
     
+    init(cryptos: Cryptos, index: Int) {
+        self.cryptos = cryptos
+        self._index = State(initialValue: index)
+        self._price = State(initialValue: cryptos[index].currentPrice)
+    }
+    
     var body: some View {
-        VStack {
-            CryptoDetailContent(crypto: crypto, price: $price)
-            interactiveChartView()
-            marketDataSection()
-            Spacer()
-            HStack {
-                previousButton
-                nextButton
-            }.padding(.horizontal)
-            Spacer()
+        ScrollView {
+            VStack {
+                CryptoDetailContent(crypto: crypto, price: $price)
+                interactiveChartView()
+                marketDataSection()
+                Divider()
+                Text("Portfolio Holdings")
+                    .font(.system(size: 14, weight: .semibold))
+                    .textCase(.uppercase)
+                    .foregroundColor(.secondary)
+                    .padding(.top)
+                
+                
+                Button(action: {
+                    showingAddHoldingsSheet = true
+                }) {
+                    Text(viewModel.hasHoldings ? crypto.formattedHoldings(currentHoldings: viewModel.holdings ?? 2) : "Add Holdings")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                    
+                }
+                .padding()
+                .tint(Color.lagoon)
+                .buttonStyle(.bordered)
+                .controlSize(.large)
+                
+                Spacer()
+                
+                HStack {
+                    previousButton
+                    nextButton
+                }.padding(.horizontal)
+                
+                Spacer()
+            }
+            
+            .padding(.top, 30)
         }
-        .padding(.top, 30)
-        .adaptiveBackgroundColor()
+        .sheet(isPresented: $showingAddHoldingsSheet) {
+            AddHoldingsSheetView(crypto: crypto, viewModel: viewModel)
+                .presentationDetents([.fraction(0.3)])
+        }
+        
         .navigationTitle(crypto.name)
         .onAppear {
             price = crypto.currentPrice
+            viewModel.fetchHoldings(cryptoId: crypto.id)
         }
+        
+        .adaptiveBackgroundColor()
     }
     
-    private func navigationButton(title: String, action: @escaping () -> Void, disabled: Bool) -> some View {
+    
+    private func navigationButton(imageName: String, action: @escaping () -> Void, disabled: Bool) -> some View {
         Button(action: {
             withAnimation {
                 action()
             }
         }) {
-            Text(title)
+            Image(systemName: imageName)
                 .font(.headline)
                 .frame(maxWidth: 300)
         }
         .tint(Color.lagoon)
-        .buttonStyle(.bordered)
+        .buttonStyle(.borderless)
         .controlSize(.large)
         .disabled(disabled)
     }
-
+    
+    
     private var previousButton: some View {
-        navigationButton(title: "Previous Coin", action: {
-            index -= 1
-            price = crypto.currentPrice
-        }, disabled: index <= 0)
+        navigationButton(imageName: "chevron.left", action: {
+            if index > 0 {
+                index -= 1
+                price = cryptos[index].currentPrice
+                viewModel.fetchHoldings(cryptoId: crypto.id)
+            }
+        }, disabled: index == 0)
     }
-
+    
     private var nextButton: some View {
-        navigationButton(title: "Next Coin", action: {
-            index += 1
-            price = crypto.currentPrice
-        }, disabled: index >= cryptos.count - 1)
+        navigationButton(imageName: "chevron.right", action: {
+            if index < cryptos.count - 1 {
+                index += 1
+                price = cryptos[index].currentPrice
+                viewModel.fetchHoldings(cryptoId: crypto.id)
+                
+            }
+        }, disabled: index == cryptos.count - 1)
     }
-
-
+    
+    
+    
     private func interactiveChartView() -> some View {
         InteractiveSparklineChartView(
             selectedPrice: $price,
@@ -83,10 +134,10 @@ struct CryptoDetailView: View {
                 HStack {
                     MarketDataItem(title: "Market Cap", value: crypto.marketCap.formattedAsShort())
                         .frame(maxWidth: .infinity)  // Makes this item take up equal width
-
+                    
                     MarketDataItem(title: "Total Volume", value: crypto.totalVolume.formattedAsShort())
                         .frame(maxWidth: .infinity)  // Makes this item take up equal width
-
+                    
                     MarketDataItem(title: "Rank", value: "#\(crypto.marketCapRank)")
                         .frame(maxWidth: .infinity)  // Makes this item take up equal width
                 }
@@ -97,13 +148,13 @@ struct CryptoDetailView: View {
                 MarketDataView(crypto: crypto)
                 
             }
-          
+            
         } header: {
-                Text("Market Data")
-                    .font(.system(size: 14, weight: .semibold))
-                    .textCase(.uppercase)
-                    .foregroundColor(.secondary)
-                    
+            Text("Market Data")
+                .font(.system(size: 14, weight: .semibold))
+                .textCase(.uppercase)
+                .foregroundColor(.secondary)
+            
         }
     }
 }
@@ -170,7 +221,7 @@ private struct CryptoPrice: View {
         HStack(spacing: 5) {
             SecondaryText(text: "£", fontSize: 24)
             PrimaryText(text: price?.formattedCurrencyWithoutSymbol ?? "", fontSize: 32)
-       
+            
             SecondaryText(text: " GBP", fontSize: 18)
         }
     }
@@ -179,7 +230,7 @@ private struct CryptoPrice: View {
 struct PrimaryText: View {
     let text: String
     let fontSize: CGFloat
-
+    
     var body: some View {
         Text(text)
             .font(.system(size: fontSize, weight: .medium, design: .rounded))
@@ -189,7 +240,7 @@ struct PrimaryText: View {
 struct SecondaryText: View {
     let text: String
     let fontSize: CGFloat
-
+    
     var body: some View {
         Text(text)
             .font(.system(size: fontSize, weight: .medium, design: .rounded))
@@ -208,7 +259,7 @@ struct CryptoDetailView_Previews: PreviewProvider {
 struct MarketDataRowItem: View {
     var title: String
     var value: String
-
+    
     var body: some View {
         HStack(spacing: 5) {
             Text(title)
@@ -227,11 +278,11 @@ struct MarketDataRow: View {
     var rightTitle: String
     var rightValue: String
     
-
+    
     var body: some View {
         HStack(spacing: 20) {
             MarketDataRowItem(title: leftTitle, value: leftValue)
-             Spacer()
+            Spacer()
             MarketDataRowItem(title: rightTitle, value: rightValue)
         }
     }
@@ -242,23 +293,20 @@ struct MarketDataView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             MarketDataRow(
-                          leftTitle: "Circulating",
-                          leftValue: crypto.formattedCirculatingSupply,
-                          rightTitle: "Max Supply",
-                          rightValue: crypto.formattedMaxSupply
-                      )
-                      
-                      MarketDataRow(
-                          leftTitle: "ATL",
-                          leftValue: crypto.formattedAllTimeLow,
-                          rightTitle: "ATH",
-                          rightValue: crypto.formattedAllTimeHigh
-                      )
+                leftTitle: "Circulating",
+                leftValue: crypto.formattedCirculatingSupply,
+                rightTitle: "Max Supply",
+                rightValue: crypto.formattedMaxSupply
+            )
+            
+            MarketDataRow(
+                leftTitle: "ATL",
+                leftValue: crypto.formattedAllTimeLow,
+                rightTitle: "ATH",
+                rightValue: crypto.formattedAllTimeHigh
+            )
         }
         .padding(20)
-  
+        
     }
 }
-
-
-

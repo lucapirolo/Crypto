@@ -58,6 +58,7 @@ final class TrackViewModel: ObservableObject {
 
     
     private func handle(error: Error) {
+        print(error)
         DispatchQueue.main.async {
             self.isLoading = false
         }

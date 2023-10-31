@@ -76,13 +76,13 @@ struct Cryptocurrency: Decodable, Equatable {
     let maxSupply: Double?
 
     /// All-time high price.
-    let ath: Double
+    let ath: Double?
 
     /// Percentage change from the all-time high price.
     let athChangePercentage: Double
     
     /// All-time low price.
-    let atl: Double
+    let atl: Double?
 
     /// Percentage change from the all-time low price.
     let atlChangePercentage: Double
@@ -185,6 +185,41 @@ extension CryptoCurrencyEntity {
             holdings: holdings
         )
     }
+    
+    func update(with crypto: Cryptocurrency) {
+           self.id = crypto.id
+           self.symbol = crypto.symbol
+           self.name = crypto.name
+           self.image = crypto.image
+           self.currentPrice = crypto.currentPrice
+           self.marketCap = Int64(crypto.marketCap)
+           self.marketCapRank = Int64(crypto.marketCapRank)
+           self.fullyDilutedValuation = Int64(crypto.fullyDilutedValuation ?? 0)
+           self.totalVolume = Int64(crypto.totalVolume)
+           self.high24h = crypto.high24h
+           self.low24h = crypto.low24h
+           self.priceChange24h = crypto.priceChange24h
+           self.priceChangePercentage24h = crypto.priceChangePercentage24h
+           self.marketCapChange24h = Int64(crypto.marketCapChange24h)
+           self.marketCapChangePercentage24h = crypto.marketCapChangePercentage24h
+           self.circulatingSupply = crypto.circulatingSupply
+           self.totalSupply = Double(crypto.totalSupply ?? 0)
+           self.maxSupply = Double(crypto.maxSupply ?? 0)
+           self.ath = crypto.ath ?? 0
+           self.athChangePercentage = crypto.athChangePercentage
+           self.atl = crypto.atl ?? 0
+           self.atlChangePercentage = crypto.atlChangePercentage
+           self.lastUpdated = crypto.lastUpdated
+           
+           do {
+               let data = try crypto.sparklineIn7D.encodeToData()
+               self.sparklineIn7D = data
+           } catch {
+               print("Error encoding sparkline data: \(error)")
+           }
+
+           // Note: `holdings` property is intentionally excluded from this update.
+       }
 }
 
 extension Cryptocurrency {
@@ -209,11 +244,12 @@ extension Cryptocurrency {
         entity.circulatingSupply = circulatingSupply
         entity.totalSupply = Double(totalSupply ?? 0)
         entity.maxSupply = Double(maxSupply ?? 0)
-        entity.ath = ath
+        entity.ath = ath ?? 0
         entity.athChangePercentage = athChangePercentage
-        entity.atl = atl
+        entity.atl = atl ?? 0
         entity.atlChangePercentage = atlChangePercentage
         entity.lastUpdated = lastUpdated
+        entity.holdings = self.holdings
         do {
             let data = try sparklineIn7D.encodeToData()
             entity.sparklineIn7D = data  // Assuming 'sparklineData' is the attribute name in your Core Data model for binary data
@@ -300,14 +336,14 @@ extension Cryptocurrency {
       }
 
       var formattedAllTimeHigh: String {
-          guard let formattedAth = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: ath)) else {
+          guard let formattedAth = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: ath ?? 0.00)) else {
               return "£0.00"
           }
           return formattedAth
       }
 
       var formattedAllTimeLow: String {
-          guard let formattedAtl = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: atl)) else {
+          guard let formattedAtl = Cryptocurrency.currencyFormatter.string(from: NSNumber(value: atl ?? 0.00)) else {
               return "£0.00"
           }
           return formattedAtl
@@ -328,6 +364,21 @@ extension Cryptocurrency {
         return maxSupply.formattedWithAbbreviations + " \(symbol.uppercased())"
     }
 
+    func formattedHoldings(currentHoldings: Double) -> String {
+          // Check if the holdings have decimal part or not
+          let hasDecimal = currentHoldings.truncatingRemainder(dividingBy: 1) != 0
+
+          // Formatter to handle the decimal part
+          let formatter = NumberFormatter()
+          formatter.minimumFractionDigits = hasDecimal ? 2 : 0 // Show 2 decimal places if there are decimals, otherwise show none
+          formatter.maximumFractionDigits = 4 // Max of 4 decimal places
+
+          guard let formattedHoldings = formatter.string(from: NSNumber(value: currentHoldings)) else {
+              return "0 \(symbol.uppercased())" // Fallback in case of formatting failure
+          }
+
+          return "\(formattedHoldings) \(symbol.uppercased())"
+      }
     
 
 }
