@@ -67,5 +67,3 @@ This calculation involved iterating through each cryptocurrency the user holds, 
 Working on this concise project was a thoroughly enjoyable experience as it sparked my creativity in reimagining the UI and also provided an opportunity to learn about Swift UI's new Charts framework. The primary objective of this project is to offer readers a glimpse into my coding style and thought process as they review the code.
 
 If given more time to enhance this project, my initial focus would be on integrating a WebSocket API to ensure real-time data updates, as the current setup doesn't provide this. Additionally, I would consider implementing pagination on the market data page to improve user experience and data handling. Another potential enhancement would be to add functionality for tracking the profits of each cryptocurrency holding. However, as the intent was to keep this project small and focused, these enhancements were not included in the initial scope.
-#  <#Title#>
-
