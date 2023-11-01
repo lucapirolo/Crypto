@@ -126,7 +126,7 @@ struct CryptoDetailView: View {
             selectedPrice: $price,
             initialPrice: crypto.currentPrice,
             data: crypto.sparklineIn7D.price,
-            color: .lagoon,
+            color: crypto.isPriceChangePositive ? .green : .red,
             chartPlotPadding: 0.40
         )
         .padding(.horizontal)
