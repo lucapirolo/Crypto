@@ -5,14 +5,13 @@ Welcome to my iOS application project, crafted with inspiration from the acclaim
 
 
 ## Screenshots
+<img src="Crypto/Screenshots/track_dark.png" alt="Tracking Dark Mode" title="Tracking Dark Mode" height="400"/>
+<img src="Crypto/Screenshots/track_light.png" alt="Tracking Light Mode" title="Tracking Light Mode" height="400"/>
 <img src="Crypto/Screenshots/accounts_dark.png" alt="Accounts Dark Mode" title="Accounts Dark Mode" height="400"/>
 <img src="Crypto/Screenshots/accounts_light.png" alt="Accounts Light Mode" title="Accounts Light Mode" height="400"/>
 <img src="Crypto/Screenshots/add_holdings_dark.png" alt="Add Holdings Dark Mode" title="Add Holdings Dark Mode" height="400"/>
 <img src="Crypto/Screenshots/details_dark.png" alt="Details Dark Mode" title="Details Dark Mode" height="400"/>
 <img src="Crypto/Screenshots/details_light.png" alt="Details Light Mode" title="Details Light Mode" height="400"/>
-<img src="Crypto/Screenshots/track_dark.png" alt="Tracking Dark Mode" title="Tracking Dark Mode" height="400"/>
-<img src="Crypto/Screenshots/track_light.png" alt="Tracking Light Mode" title="Tracking Light Mode" height="400"/>
-
 ----------
 
 # Project Objectives
