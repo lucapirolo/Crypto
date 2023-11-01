@@ -18,6 +18,13 @@
 		9F2FA1E02AF186EF00A8621D /* AddHoldingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */; };
 		9F2FA1E32AF25B2000A8621D /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E22AF25B2000A8621D /* IconTextView.swift */; };
 		9F2FA1E52AF2629800A8621D /* MarketDataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E42AF2629800A8621D /* MarketDataRow.swift */; };
+		9F2FA1EE2AF28F9D00A8621D /* add_holdings_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E72AF28F9D00A8621D /* add_holdings_dark.png */; };
+		9F2FA1EF2AF28F9D00A8621D /* details_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E82AF28F9D00A8621D /* details_light.png */; };
+		9F2FA1F02AF28F9D00A8621D /* track_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E92AF28F9D00A8621D /* track_dark.png */; };
+		9F2FA1F12AF28F9D00A8621D /* details_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1EA2AF28F9D00A8621D /* details_dark.png */; };
+		9F2FA1F22AF28F9D00A8621D /* accounts_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1EB2AF28F9D00A8621D /* accounts_light.png */; };
+		9F2FA1F32AF28F9D00A8621D /* track_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1EC2AF28F9D00A8621D /* track_light.png */; };
+		9F2FA1F42AF28F9D00A8621D /* accounts_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2FA1ED2AF28F9D00A8621D /* accounts_dark.png */; };
 		9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A88E2AEEAF9600169871 /* Alert.swift */; };
 		9F94A8912AEEB76900169871 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8902AEEB76900169871 /* Formatters.swift */; };
 		9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8922AEECBDD00169871 /* UIKit.swift */; };
@@ -81,6 +88,14 @@
 		9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoldingsSheetView.swift; sourceTree = "<group>"; };
 		9F2FA1E22AF25B2000A8621D /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		9F2FA1E42AF2629800A8621D /* MarketDataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataRow.swift; sourceTree = "<group>"; };
+		9F2FA1E72AF28F9D00A8621D /* add_holdings_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_holdings_dark.png; sourceTree = "<group>"; };
+		9F2FA1E82AF28F9D00A8621D /* details_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = details_light.png; sourceTree = "<group>"; };
+		9F2FA1E92AF28F9D00A8621D /* track_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_dark.png; sourceTree = "<group>"; };
+		9F2FA1EA2AF28F9D00A8621D /* details_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = details_dark.png; sourceTree = "<group>"; };
+		9F2FA1EB2AF28F9D00A8621D /* accounts_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accounts_light.png; sourceTree = "<group>"; };
+		9F2FA1EC2AF28F9D00A8621D /* track_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_light.png; sourceTree = "<group>"; };
+		9F2FA1ED2AF28F9D00A8621D /* accounts_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accounts_dark.png; sourceTree = "<group>"; };
+		9F2FA1F52AF28FBA00A8621D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F94A88E2AEEAF9600169871 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9F94A8902AEEB76900169871 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		9F94A8922AEECBDD00169871 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
@@ -201,6 +216,20 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		9F2FA1E62AF28DEB00A8621D /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				9F2FA1ED2AF28F9D00A8621D /* accounts_dark.png */,
+				9F2FA1EB2AF28F9D00A8621D /* accounts_light.png */,
+				9F2FA1E72AF28F9D00A8621D /* add_holdings_dark.png */,
+				9F2FA1EA2AF28F9D00A8621D /* details_dark.png */,
+				9F2FA1E82AF28F9D00A8621D /* details_light.png */,
+				9F2FA1E92AF28F9D00A8621D /* track_dark.png */,
+				9F2FA1EC2AF28F9D00A8621D /* track_light.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		9FA8594F2AEE72B8006F30EE = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +253,7 @@
 		9FA8595A2AEE72B8006F30EE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1E62AF28DEB00A8621D /* Screenshots */,
 				9FA8598D2AEE7CB2006F30EE /* Screens */,
 				9F2FA1C72AEFC44200A8621D /* Placeholders */,
 				9FA859AA2AEE84CB006F30EE /* Info.plist */,
@@ -238,6 +268,7 @@
 				9FA859642AEE72B9006F30EE /* Persistence.swift */,
 				9FA859612AEE72B9006F30EE /* Preview Content */,
 				9F94A89C2AEEDFE000169871 /* Crypto.xcdatamodeld */,
+				9F2FA1F52AF28FBA00A8621D /* README.md */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -485,10 +516,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2FA1F12AF28F9D00A8621D /* details_dark.png in Resources */,
 				9F2FA1CF2AEFCA8A00A8621D /* markets.json in Resources */,
+				9F2FA1F02AF28F9D00A8621D /* track_dark.png in Resources */,
+				9F2FA1EE2AF28F9D00A8621D /* add_holdings_dark.png in Resources */,
+				9F2FA1EF2AF28F9D00A8621D /* details_light.png in Resources */,
 				9FA859A72AEE8471006F30EE /* Acumin-BdItPro.ttf in Resources */,
 				9FA859A92AEE8471006F30EE /* Acumin-BdPro.ttf in Resources */,
+				9F2FA1F42AF28F9D00A8621D /* accounts_dark.png in Resources */,
+				9F2FA1F32AF28F9D00A8621D /* track_light.png in Resources */,
 				9FA859A62AEE8471006F30EE /* Acumin-ItPro.ttf in Resources */,
+				9F2FA1F22AF28F9D00A8621D /* accounts_light.png in Resources */,
 				9FA859632AEE72B9006F30EE /* Preview Assets.xcassets in Resources */,
 				9FA859A82AEE8471006F30EE /* Acumin-RPro.ttf in Resources */,
 				9FA859602AEE72B9006F30EE /* Assets.xcassets in Resources */,
