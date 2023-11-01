@@ -6,10 +6,9 @@ import SwiftUI
 import Charts
 
 struct AccountsView: View {
-    @Environment(\.colorScheme) var colorScheme
     
+    @Environment(\.colorScheme) var colorScheme
     @State private var isAmountHidden: Bool = false
-    let crypto = Cryptos.placeholders[0]
     @FetchRequest(
         sortDescriptors: [],
         predicate: NSPredicate(format: "holdings > 0")
@@ -42,41 +41,68 @@ struct AccountsView: View {
     
     // Main content view
     private var contentView: some View {
-        
         VStack {
             balanceHeaderView
             balanceView
             iconsHStack
             Divider()
-            VStack {
-                HStack {
-                    Text("Holdings")
-                        .font(.system(size: 12, weight: .semibold))
-                        .textCase(.uppercase)
-                        .foregroundColor(.secondary)
-                    Spacer()
-                }
-                .padding(.bottom, 4)
-                
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        ForEach(portfolio, id: \.id) { crypto in
-                            NavigationLink(destination: CryptoDetailView(cryptos: portfolio, index: portfolio.lastIndex(of: crypto) ?? 0)) {
-                                cryptoRowView(crypto: crypto)
-                                
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                    Spacer()
-                        .frame(height: 50)
-                }
-            }
-            .padding(.top)
-            .padding(.horizontal)
+            holdingsSection
             Spacer()
         }.padding(.top)
     }
+    
+    private var holdingsSection: some View {
+        VStack {
+            holdingsHeader
+                .padding(.bottom, 4)
+            
+            if portfolio.isEmpty {
+                noHoldingsView
+            } else {
+                holdingsScrollView
+            }
+        }
+        .padding(.top)
+        .padding(.horizontal)
+    }
+    
+    private var holdingsHeader: some View {
+        HStack {
+            Text("Holdings")
+                .font(.system(size: 12, weight: .semibold))
+                .textCase(.uppercase)
+                .foregroundColor(.secondary)
+            Spacer()
+        }
+    }
+    
+    private var noHoldingsView: some View {
+        VStack {
+            Spacer()
+            Text("No Holdings")
+                .font(.system(size: 12, weight: .semibold))
+                .textCase(.uppercase)
+                .foregroundColor(.secondary)
+            Spacer()
+        }
+    }
+    
+    private var holdingsScrollView: some View {
+        ScrollView(showsIndicators: false) {
+            VStack {
+                ForEach(portfolio, id: \.id) { crypto in
+                    NavigationLink(destination: CryptoDetailView(cryptos: portfolio, index: portfolio.lastIndex(of: crypto) ?? 0)) {
+                        cryptoRowView(crypto: crypto)
+                        
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
+            Spacer()
+                .frame(height: 50)
+        }
+    }
+    
     
     // Add this within your AccountsView struct
     private var iconsHStack: some View {
@@ -170,7 +196,6 @@ struct AccountsView: View {
             Divider()
         }
     }
-    
 }
 
 // Preview provider

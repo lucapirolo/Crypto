@@ -14,7 +14,6 @@
 		9F2FA1D22AEFCDFB00A8621D /* CryptoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D12AEFCDFB00A8621D /* CryptoImageView.swift */; };
 		9F2FA1D42AEFEE4B00A8621D /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D32AEFEE4B00A8621D /* NumberExtensions.swift */; };
 		9F2FA1D72AF044B500A8621D /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D62AF044B500A8621D /* AccountsView.swift */; };
-		9F2FA1D92AF1170C00A8621D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D82AF1170C00A8621D /* Account.swift */; };
 		9F2FA1DD2AF139A300A8621D /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */; };
 		9F2FA1E02AF186EF00A8621D /* AddHoldingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */; };
 		9F2FA1E32AF25B2000A8621D /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E22AF25B2000A8621D /* IconTextView.swift */; };
@@ -78,7 +77,6 @@
 		9F2FA1D12AEFCDFB00A8621D /* CryptoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoImageView.swift; sourceTree = "<group>"; };
 		9F2FA1D32AEFEE4B00A8621D /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		9F2FA1D62AF044B500A8621D /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
-		9F2FA1D82AF1170C00A8621D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
 		9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoldingsSheetView.swift; sourceTree = "<group>"; };
 		9F2FA1E22AF25B2000A8621D /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 				9FA859C72AEE963E006F30EE /* Pagination.swift */,
 				9FA859C92AEE96E8006F30EE /* CryptoError.swift */,
 				9FA859CB2AEE9FA7006F30EE /* Cryptocurrency.swift */,
-				9F2FA1D82AF1170C00A8621D /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -524,7 +521,6 @@
 				9FA859B12AEE8798006F30EE /* CustomTabBarView.swift in Sources */,
 				9FA859BB2AEE9460006F30EE /* TrackView.swift in Sources */,
 				9FA859B92AEE93C8006F30EE /* TrackViewModel.swift in Sources */,
-				9F2FA1D92AF1170C00A8621D /* Account.swift in Sources */,
 				9F2FA1E52AF2629800A8621D /* MarketDataRow.swift in Sources */,
 				9FA859BF2AEE94A5006F30EE /* NetworkManager.swift in Sources */,
 				9FA859CC2AEE9FA7006F30EE /* Cryptocurrency.swift in Sources */,
