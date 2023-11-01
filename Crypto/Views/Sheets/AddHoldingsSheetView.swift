@@ -16,6 +16,8 @@ struct AddHoldingsSheetView: View {
     @State private var isUpdating = false
     @FocusState private var isInputFieldFocused: Bool
     
+  
+    
     var body: some View {
         ZStack {
             backgroundColor

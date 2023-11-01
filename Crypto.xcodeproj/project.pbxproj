@@ -17,6 +17,7 @@
 		9F2FA1D92AF1170C00A8621D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1D82AF1170C00A8621D /* Account.swift */; };
 		9F2FA1DD2AF139A300A8621D /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */; };
 		9F2FA1E02AF186EF00A8621D /* AddHoldingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */; };
+		9F2FA1E32AF25B2000A8621D /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FA1E22AF25B2000A8621D /* IconTextView.swift */; };
 		9F94A88F2AEEAF9600169871 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A88E2AEEAF9600169871 /* Alert.swift */; };
 		9F94A8912AEEB76900169871 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8902AEEB76900169871 /* Formatters.swift */; };
 		9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8922AEECBDD00169871 /* UIKit.swift */; };
@@ -79,6 +80,7 @@
 		9F2FA1D82AF1170C00A8621D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9F2FA1DC2AF139A300A8621D /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
 		9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoldingsSheetView.swift; sourceTree = "<group>"; };
+		9F2FA1E22AF25B2000A8621D /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		9F94A88E2AEEAF9600169871 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9F94A8902AEEB76900169871 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		9F94A8922AEECBDD00169871 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 				9F2FA1DF2AF186EF00A8621D /* AddHoldingsSheetView.swift */,
 			);
 			path = Sheets;
+			sourceTree = "<group>";
+		};
+		9F2FA1E12AF25B0E00A8621D /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				9F2FA1E22AF25B2000A8621D /* IconTextView.swift */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		9FA8594F2AEE72B8006F30EE = {
@@ -314,6 +324,7 @@
 		9FA8598F2AEE7CCA006F30EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1E12AF25B0E00A8621D /* Icons */,
 				9F2FA1DE2AF186D500A8621D /* Sheets */,
 				9F2FA1D02AEFCDEA00A8621D /* Images */,
 				9F2FA1C12AEFBF1100A8621D /* Charts */,
@@ -526,6 +537,7 @@
 				9FA859942AEE7D02006F30EE /* HomeView.swift in Sources */,
 				9FA859CA2AEE96E8006F30EE /* CryptoError.swift in Sources */,
 				9F94A8932AEECBDD00169871 /* UIKit.swift in Sources */,
+				9F2FA1E32AF25B2000A8621D /* IconTextView.swift in Sources */,
 				9F2FA1C32AEFBF2300A8621D /* SparklineCharts.swift in Sources */,
 				9F94A8912AEEB76900169871 /* Formatters.swift in Sources */,
 				9F2FA1CB2AEFC4B900A8621D /* Bundle.swift in Sources */,

@@ -42,6 +42,8 @@ extension Double {
         return formattedPrice.replacingOccurrences(of: "£", with: "")
     }
     
+    
+    
     func formattedAsShort() -> String {
         if self.isNaN || self.isInfinite {
             return "N/A"

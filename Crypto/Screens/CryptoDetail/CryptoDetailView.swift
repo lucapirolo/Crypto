@@ -56,11 +56,15 @@ struct CryptoDetailView: View {
                     previousButton
                     nextButton
                 }.padding(.horizontal)
+                    
+                    
+                
                 
                 Spacer()
+                    .frame(height: 75)
             }
-            
             .padding(.top, 30)
+
         }
         .sheet(isPresented: $showingAddHoldingsSheet) {
             AddHoldingsSheetView(crypto: crypto, viewModel: viewModel)
