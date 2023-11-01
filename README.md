@@ -5,13 +5,14 @@ Welcome to my iOS application project, crafted with inspiration from the acclaim
 
 
 ## Screenshots
-![Accounts Dark Mode](Screenshots/accounts_dark.png "Accounts Dark Mode")
-![Accounts Light Mode](Screenshots/accounts_light.png "Accounts Light Mode")
-![Add Holdings Dark Mode](Screenshots/add_holdings_dark.png "Add Holdings Dark Mode")
-![Details Dark Mode](Screenshots/details_dark.png "Details Dark Mode")
-![Details Light Mode](Screenshots/details_light.png "Details Light Mode")
-![Tracking Dark Mode](Screenshots/tracking_dark.png "Tracking Dark Mode")
-![Tracking Light Mode](Screenshots/tracking_light.png "Tracking Light Mode")
+<img src="Crypto/Screenshots/accounts_dark.png" alt="Accounts Dark Mode" title="Accounts Dark Mode" height="400"/>
+<img src="Crypto/Screenshots/accounts_light.png" alt="Accounts Light Mode" title="Accounts Light Mode" height="400"/>
+<img src="Crypto/Screenshots/add_holdings_dark.png" alt="Add Holdings Dark Mode" title="Add Holdings Dark Mode" height="400"/>
+<img src="Crypto/Screenshots/details_dark.png" alt="Details Dark Mode" title="Details Dark Mode" height="400"/>
+<img src="Crypto/Screenshots/details_light.png" alt="Details Light Mode" title="Details Light Mode" height="400"/>
+<img src="Crypto/Screenshots/track_dark.png" alt="Tracking Dark Mode" title="Tracking Dark Mode" height="400"/>
+<img src="Crypto/Screenshots/track_light.png" alt="Tracking Light Mode" title="Tracking Light Mode" height="400"/>
+
 ----------
 
 # Project Objectives
@@ -66,5 +67,3 @@ This calculation involved iterating through each cryptocurrency the user holds, 
 Working on this concise project was a thoroughly enjoyable experience as it sparked my creativity in reimagining the UI and also provided an opportunity to learn about Swift UI's new Charts framework. The primary objective of this project is to offer readers a glimpse into my coding style and thought process as they review the code.
 
 If given more time to enhance this project, my initial focus would be on integrating a WebSocket API to ensure real-time data updates, as the current setup doesn't provide this. Additionally, I would consider implementing pagination on the market data page to improve user experience and data handling. Another potential enhancement would be to add functionality for tracking the profits of each cryptocurrency holding. However, as the intent was to keep this project small and focused, these enhancements were not included in the initial scope.
-#  <#Title#>
-
