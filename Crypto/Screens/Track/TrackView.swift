@@ -12,7 +12,6 @@ import Charts
 struct TrackView: View {
     
     // MARK: - Properties
-    
     @ObservedObject var viewModel: TrackViewModel
     @Environment(\.colorScheme) private var colorScheme
     @State private var searchText = ""

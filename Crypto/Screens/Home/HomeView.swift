@@ -19,11 +19,8 @@ struct HomeView: View {
             TrackView(viewModel: trackViewModel)
                 .tabBarItem(tab: .track, selection: $tabSelection)
             
-            
             AccountsView()
                 .tabBarItem(tab: .accounts, selection: $tabSelection)
-            
-
         }
         .adaptiveBackgroundColor()
         .ignoresSafeArea(.keyboard, edges: .bottom)
