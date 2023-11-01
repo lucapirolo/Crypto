@@ -58,3 +58,15 @@ struct AdaptiveBackgroundColorModifier: ViewModifier {
             .background(colorScheme == .dark ? Color.midnight : Color(uiColor: UIColor.systemBackground))
     }
 }
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    func dismissableKeyboard() -> some View {
+           return self.onTapGesture(perform: hideKeyboard)
+    }
+}
+#endif

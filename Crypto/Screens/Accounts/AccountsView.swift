@@ -60,20 +60,17 @@ struct AccountsView: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        
                         ForEach(portfolio, id: \.id) { crypto in
                             NavigationLink(destination: CryptoDetailView(cryptos: portfolio, index: portfolio.lastIndex(of: crypto) ?? 0)) {
                                 cryptoRowView(crypto: crypto)
-                              
+                                
                             }
                             .buttonStyle(PlainButtonStyle())
-                         
                         }
                     }
                     Spacer()
                         .frame(height: 50)
                 }
-                
             }
             .padding(.top)
             .padding(.horizontal)
@@ -138,13 +135,13 @@ struct AccountsView: View {
         }
     }
     
-  
+    
     private func cryptoNameAndAmountView(crypto: Cryptocurrency) -> some View {
         VStack(alignment: .leading) {
             Text(crypto.name)
                 .font(.system(size: 16, weight: .medium))
             
-            Text("\(crypto.formattedHoldings(currentHoldings: crypto.holdings)) \(crypto.symbol.uppercased()) (\(crypto.formattedHoldingsInGBP))") // Replace with dynamic values if necessary
+            Text("\(crypto.formattedHoldings(currentHoldings: crypto.holdings)) (\(crypto.formattedHoldingsInGBP))") // Replace with dynamic values if necessary
                 .font(.system(size: 12, weight: .semibold))
                 .foregroundColor(.secondary)
         }

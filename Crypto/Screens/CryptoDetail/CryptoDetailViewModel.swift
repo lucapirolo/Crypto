@@ -22,7 +22,6 @@ class CryptoDetailViewModel: ObservableObject {
     func fetchHoldings(cryptoId: String) {
         if let cryptoEntity = persistenceController.fetchCrypto(byId: cryptoId) {
             DispatchQueue.main.async {
-                print(cryptoEntity.holdings)
                 self.holdings = cryptoEntity.holdings
             }
         }
@@ -34,7 +33,7 @@ class CryptoDetailViewModel: ObservableObject {
     ///   - cryptoId: The identifier of the crypto.
     ///   - amount: The amount of holdings to add.
     func addHoldings(cryptoId: String, _ amount: Double) {
-        guard !cryptoId.isEmpty, amount > 0 else {
+        guard !cryptoId.isEmpty, amount >= 0 else {
              return
          }
         

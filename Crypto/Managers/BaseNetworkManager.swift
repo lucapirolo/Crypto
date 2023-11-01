@@ -68,9 +68,7 @@ class BaseNetworkManager {
         guard let apiUrl = urlComponents?.url else {
             throw NetworkError.invalidUrl
         }
-        
-        print(apiUrl)
-        
+            
         var urlRequest = URLRequest(url: apiUrl)
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")

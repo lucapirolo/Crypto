@@ -75,7 +75,6 @@ final class TrackViewModel: ObservableObject {
     /// Private function to handle errors during data fetching.
     /// - Parameter error: The error that occurred during data fetching.
     private func handle(error: Error) {
-        print(error)
         DispatchQueue.main.async {
             self.isLoading = false // Update loading state.
         }

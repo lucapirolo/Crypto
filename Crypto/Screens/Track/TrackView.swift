@@ -52,6 +52,8 @@ struct TrackView: View {
                         viewModel.loadMarketData()
                     }
                     .showAlert(alert: $viewModel.alert)
+                    .dismissableKeyboard()
+                   
             }
         }
     }
