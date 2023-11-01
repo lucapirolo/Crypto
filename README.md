@@ -5,13 +5,14 @@ Welcome to my iOS application project, crafted with inspiration from the acclaim
 
 
 ## Screenshots
-![Accounts Dark Mode](Crypto/Screenshots/accounts_dark.png "Accounts Dark Mode")
-![Accounts Light Mode](Crypto/Screenshots/accounts_light.png "Accounts Light Mode")
-![Add Holdings Dark Mode](Crypto/Screenshots/add_holdings_dark.png "Add Holdings Dark Mode")
-![Details Dark Mode](Crypto/Screenshots/details_dark.png "Details Dark Mode")
-![Details Light Mode](Crypto/Screenshots/details_light.png "Details Light Mode")
-![Tracking Dark Mode](Crypto/Screenshots/tracking_dark.png "Tracking Dark Mode")
-![Tracking Light Mode](Crypto/Screenshots/tracking_light.png "Tracking Light Mode")
+<img src="Crypto/Screenshots/accounts_dark.png" alt="Accounts Dark Mode" title="Accounts Dark Mode" width="200" height="400"/>
+<img src="Crypto/Screenshots/accounts_light.png" alt="Accounts Light Mode" title="Accounts Light Mode" width="200" height="400"/>
+<img src="Crypto/Screenshots/add_holdings_dark.png" alt="Add Holdings Dark Mode" title="Add Holdings Dark Mode" width="200" height="400"/>
+<img src="Crypto/Screenshots/details_dark.png" alt="Details Dark Mode" title="Details Dark Mode" width="200" height="400"/>
+<img src="Crypto/Screenshots/details_light.png" alt="Details Light Mode" title="Details Light Mode" width="200" height="400"/>
+<img src="Crypto/Screenshots/track_dark.png" alt="Tracking Dark Mode" title="Tracking Dark Mode" width="200" height="400"/>
+<img src="Crypto/Screenshots/track_light.png" alt="Tracking Light Mode" title="Tracking Light Mode" width="200" height="400"/>
+
 ----------
 
 # Project Objectives
