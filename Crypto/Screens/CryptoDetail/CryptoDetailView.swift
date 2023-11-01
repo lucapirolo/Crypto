@@ -8,13 +8,13 @@ import SwiftUI
 
 struct CryptoDetailView: View {
     let cryptos: Cryptos
-    @State var index: Int
-    @State var price: Double?
+    @State private var index: Int
+    @State private var price: Double?
     @State private var showingAddHoldingsSheet = false
-    @ObservedObject var viewModel: CryptoDetailViewModel = CryptoDetailViewModel()
+    @ObservedObject private var viewModel: CryptoDetailViewModel = CryptoDetailViewModel()
     
-    var crypto: Cryptocurrency {
-        return cryptos[index]
+    private var crypto: Cryptocurrency {
+        cryptos[index]
     }
     
     init(cryptos: Cryptos, index: Int) {
@@ -24,102 +24,87 @@ struct CryptoDetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 20) {
                 CryptoDetailContent(crypto: crypto, price: $price)
                 interactiveChartView()
+                Divider()
                 marketDataSection()
                 Divider()
-                Text("Portfolio Holdings")
-                    .font(.system(size: 14, weight: .semibold))
-                    .textCase(.uppercase)
-                    .foregroundColor(.secondary)
-                    .padding(.top)
-                
-                
-                Button(action: {
-                    showingAddHoldingsSheet = true
-                }) {
-                    Text(viewModel.hasHoldings ? crypto.formattedHoldings(currentHoldings: viewModel.holdings ?? 2) : "Add Holdings")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                    
+                VStack {
+                    Text("Portfolio Holdings").sectionHeaderStyle()
+                    portfolioHoldingsButton()
                 }
-                .padding()
-                .tint(Color.lagoon)
-                .buttonStyle(.bordered)
-                .controlSize(.large)
-                
+                Divider()
+                navigationButtons()
                 Spacer()
-                
-                HStack {
-                    previousButton
-                    nextButton
-                }.padding(.horizontal)
-                    
-                    
-                
-                
-                Spacer()
-                    .frame(height: 75)
+                    .frame(height: 60)
             }
             .padding(.top, 30)
-
+            
+           
         }
         .sheet(isPresented: $showingAddHoldingsSheet) {
             AddHoldingsSheetView(crypto: crypto, viewModel: viewModel)
                 .presentationDetents([.fraction(0.3)])
         }
-        
         .navigationTitle(crypto.name)
-        .onAppear {
-            price = crypto.currentPrice
-            viewModel.fetchHoldings(cryptoId: crypto.id)
-        }
-        
+        .onAppear(perform: fetchCryptoDetails)
         .adaptiveBackgroundColor()
     }
     
+    private func fetchCryptoDetails() {
+        price = crypto.currentPrice
+        viewModel.fetchHoldings(cryptoId: crypto.id)
+    }
     
     private func navigationButton(imageName: String, action: @escaping () -> Void, disabled: Bool) -> some View {
-        Button(action: {
-            withAnimation {
-                action()
-            }
-        }) {
+        Button(action: action) {
             Image(systemName: imageName)
                 .font(.headline)
                 .frame(maxWidth: 300)
         }
-        .tint(Color.lagoon)
-        .buttonStyle(.borderless)
-        .controlSize(.large)
-        .disabled(disabled)
+        .buttonStyleProperties(isDisabled: disabled)
     }
     
-    
     private var previousButton: some View {
-        navigationButton(imageName: "chevron.left", action: {
-            if index > 0 {
-                index -= 1
-                price = cryptos[index].currentPrice
-                viewModel.fetchHoldings(cryptoId: crypto.id)
-            }
-        }, disabled: index == 0)
+        navigationButton(
+            imageName: "chevron.left",
+            action: navigateToPrevious,
+            disabled: index == 0
+        )
     }
     
     private var nextButton: some View {
-        navigationButton(imageName: "chevron.right", action: {
-            if index < cryptos.count - 1 {
-                index += 1
-                price = cryptos[index].currentPrice
-                viewModel.fetchHoldings(cryptoId: crypto.id)
-                
-            }
-        }, disabled: index == cryptos.count - 1)
+        navigationButton(
+            imageName: "chevron.right",
+            action: navigateToNext,
+            disabled: index == cryptos.count - 1
+        )
     }
     
+    private func navigateToPrevious() {
+        withAnimation {
+            if index > 0 {
+                index -= 1
+                updatePriceAndHoldings()
+            }
+        }
+    }
     
+    private func navigateToNext() {
+        withAnimation {
+            if index < cryptos.count - 1 {
+                index += 1
+                updatePriceAndHoldings()
+            }
+        }
+    }
+    
+    private func updatePriceAndHoldings() {
+        price = cryptos[index].currentPrice
+        viewModel.fetchHoldings(cryptoId: crypto.id)
+    }
     
     private func interactiveChartView() -> some View {
         InteractiveSparklineChartView(
@@ -133,33 +118,34 @@ struct CryptoDetailView: View {
     }
     
     private func marketDataSection() -> some View {
-        Section {
+        Section(header: Text("Market Data").sectionHeaderStyle()) {
             VStack {
-                HStack {
+                HStack(spacing: 20) {
                     MarketDataItem(title: "Market Cap", value: crypto.marketCap.formattedAsShort())
-                        .frame(maxWidth: .infinity)  // Makes this item take up equal width
-                    
                     MarketDataItem(title: "Total Volume", value: crypto.totalVolume.formattedAsShort())
-                        .frame(maxWidth: .infinity)  // Makes this item take up equal width
-                    
                     MarketDataItem(title: "Rank", value: "#\(crypto.marketCapRank)")
-                        .frame(maxWidth: .infinity)  // Makes this item take up equal width
                 }
                 .padding(.top, 8)
-                .padding(.horizontal, 20)
-                Divider()
-                
                 MarketDataView(crypto: crypto)
-                
             }
-            
-        } header: {
-            Text("Market Data")
-                .font(.system(size: 14, weight: .semibold))
-                .textCase(.uppercase)
-                .foregroundColor(.secondary)
-            
         }
+    }
+    
+    private func portfolioHoldingsButton() -> some View {
+        Button(action: { showingAddHoldingsSheet = true }) {
+            Text(viewModel.hasHoldings ? crypto.formattedHoldings(currentHoldings: viewModel.holdings ?? 2) : "Add Holdings")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+        }
+        .primaryButtonStyle()
+    }
+    
+    private func navigationButtons() -> some View {
+        HStack {
+            previousButton
+            nextButton
+        }
+        .padding(.horizontal)
     }
 }
 
@@ -255,40 +241,6 @@ struct SecondaryText: View {
 struct CryptoDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CryptoDetailView(cryptos: Cryptos.placeholders, index: 1)
-    }
-}
-
-
-
-struct MarketDataRowItem: View {
-    var title: String
-    var value: String
-    
-    var body: some View {
-        HStack(spacing: 5) {
-            Text(title)
-                .font(.system(size: 12))
-                .foregroundColor(.secondary)
-            Text(value)
-                .font(.system(size: 12))
-                .animation(.easeIn)
-        }
-    }
-}
-
-struct MarketDataRow: View {
-    var leftTitle: String
-    var leftValue: String
-    var rightTitle: String
-    var rightValue: String
-    
-    
-    var body: some View {
-        HStack(spacing: 20) {
-            MarketDataRowItem(title: leftTitle, value: leftValue)
-            Spacer()
-            MarketDataRowItem(title: rightTitle, value: rightValue)
-        }
     }
 }
 

@@ -17,6 +17,7 @@ struct TrackView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var searchText = ""
     
+    
     /// Computes the cryptocurrencies to be displayed.
     var cryptos: Cryptos {
         viewModel.cryptos ?? viewModel.cachedCryptos.map { $0.toModel() }
@@ -35,6 +36,7 @@ struct TrackView: View {
     init(viewModel: TrackViewModel) {
         self.viewModel = viewModel
         UINavigationBar.configureCryptoNavBarAppearance()
+        
     }
     
     // MARK: - Body
