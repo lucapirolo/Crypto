@@ -233,6 +233,7 @@
 		9FA8594F2AEE72B8006F30EE = {
 			isa = PBXGroup;
 			children = (
+				9F2FA1F52AF28FBA00A8621D /* README.md */,
 				9FA8595A2AEE72B8006F30EE /* Crypto */,
 				9FA859702AEE72B9006F30EE /* CryptoTests */,
 				9FA8597A2AEE72B9006F30EE /* CryptoUITests */,
@@ -268,7 +269,6 @@
 				9FA859642AEE72B9006F30EE /* Persistence.swift */,
 				9FA859612AEE72B9006F30EE /* Preview Content */,
 				9F94A89C2AEEDFE000169871 /* Crypto.xcdatamodeld */,
-				9F2FA1F52AF28FBA00A8621D /* README.md */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
