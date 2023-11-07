@@ -8,6 +8,7 @@
 import Foundation
 
 /// This class is a ViewModel for tracking cryptocurrencies. It handles fetching, caching, and updating data related to cryptocurrency markets.
+@MainActor
 final class TrackViewModel: ObservableObject {
 
     // MARK: - Published Properties
@@ -49,21 +50,16 @@ final class TrackViewModel: ObservableObject {
             processResponse(response) // Process the successful response.
         } else {
             // Handle case where response is nil.
-            DispatchQueue.main.async {
-                self.alert = AlertContext.unableToComplete
-            }
+            self.alert = AlertContext.unableToComplete
         }
     }
     
     /// Private function to process the successful response.
     /// - Parameter response: The response containing cryptocurrency data.
     private func processResponse(_ response: Cryptos) {
-        // Update the state on the main thread.
-        DispatchQueue.main.async {
-            self.cryptos = response // Update the cryptocurrency list.
-            PersistenceController.shared.saveCryptocurrencies(response) // Save the data for caching.
-            self.isLoading = false // Update loading state.
-        }
+        self.cryptos = response // Update the cryptocurrency list.
+        PersistenceController.shared.saveCryptocurrencies(response) // Save the data for caching.
+        self.isLoading = false // Update loading state.
     }
     
     /// Function to fetch cached data from the persistence layer.
@@ -75,20 +71,13 @@ final class TrackViewModel: ObservableObject {
     /// Private function to handle errors during data fetching.
     /// - Parameter error: The error that occurred during data fetching.
     private func handle(error: Error) {
-        DispatchQueue.main.async {
-            self.isLoading = false // Update loading state.
-        }
+        self.isLoading = false // Update loading state.
         // Handle network errors.
         if let networkError = error as? NetworkError {
-            DispatchQueue.main.async {
-                self.alert = networkError.alertItem // Set the alert item based on the network error.
-            }
-           
+            self.alert = networkError.alertItem // Set the alert item based on the network error.
         } else {
             // Handle other errors.
-            DispatchQueue.main.async {
-                self.alert = AlertContext.unableToComplete // Set a generic alert item.
-            }
+            self.alert = AlertContext.unableToComplete // Set a generic alert item.
         }
     }
 }
